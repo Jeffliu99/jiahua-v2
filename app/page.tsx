@@ -67,11 +67,16 @@ export default function Home() {
           </div>
 
           {/* Right Visual */}
-          <div>
-            <div className="bg-white rounded-[40px] shadow-xl overflow-hidden">
-              https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200
+          {/* Right Visual */}
+            <div>
+              <div className="relative bg-white rounded-[40px] shadow-xl overflow-hidden h-[520px]">
+                <img
+                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200"
+                  alt="加华月子餐产后营养服务"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
 
         </div>
       </section>
