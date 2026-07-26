@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navItems = [
     { href: "/", label: "首页" },
@@ -15,16 +16,41 @@ export default function Header() {
     { href: "/about", label: "关于加华" },
   ];
 
+  function openMenu() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setMenuOpen(true);
+  }
+
+  function closeMenuWithDelay() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
+    closeTimerRef.current = setTimeout(() => {
+      setMenuOpen(false);
+    }, 140);
+  }
+
+  function closeMenuNow() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setMenuOpen(false);
+  }
+
   useEffect(() => {
     function handleOutsideClick(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
+        closeMenuNow();
       }
     }
 
     function handleEscape(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setMenuOpen(false);
+        closeMenuNow();
       }
     }
 
@@ -34,6 +60,9 @@ export default function Header() {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
     };
   }, []);
 
@@ -91,12 +120,12 @@ export default function Header() {
         <div
           ref={menuRef}
           className="relative ml-auto mr-8 min-[700px]:hidden md:mr-12"
-          onMouseEnter={() => setMenuOpen(true)}
-          onMouseLeave={() => setMenuOpen(false)}
-          onFocusCapture={() => setMenuOpen(true)}
+          onMouseEnter={openMenu}
+          onMouseLeave={closeMenuWithDelay}
+          onFocusCapture={openMenu}
           onBlurCapture={(event) => {
             if (!event.currentTarget.contains(event.relatedTarget as Node)) {
-              setMenuOpen(false);
+              closeMenuWithDelay();
             }
           }}
         >
@@ -108,19 +137,22 @@ export default function Header() {
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((current) => !current)}
-            className="rounded-full bg-[#1F4E4C] px-5 py-2 font-song text-[15px] font-medium text-white shadow-sm transition-colors hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none focus:ring-2 focus:ring-[#D6B37F] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
+            className="rounded-full bg-[#1F4E4C] px-5 py-2 font-song text-[15px] font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none focus:ring-2 focus:ring-[#D6B37F] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
           >
             网站导航
           </button>
+
+          {/* Invisible hover bridge: prevents dropdown from closing while moving from button to menu */}
+          <div className="absolute right-0 top-9 h-4 w-56" aria-hidden="true" />
 
           <div
             id="site-navigation-menu"
             role="menu"
             aria-labelledby="site-navigation-button"
-            className={`absolute right-0 top-11 z-50 w-56 rounded-3xl border border-[#E8DCC9] bg-[#FAF8F5] p-3 shadow-[0_20px_50px_rgba(31,78,76,0.18)] transition-all duration-200 ease-out ${
+            className={`absolute right-0 top-11 z-50 w-56 origin-top-right rounded-3xl border border-[#E8DCC9] bg-[#FAF8F5]/98 p-3 shadow-[0_24px_60px_rgba(31,78,76,0.20)] backdrop-blur-sm transform-gpu transition-[opacity,transform,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               menuOpen
                 ? "visible translate-y-0 scale-100 opacity-100 pointer-events-auto"
-                : "invisible translate-y-2 scale-95 opacity-0 pointer-events-none"
+                : "invisible translate-y-3 scale-95 opacity-0 pointer-events-none"
             }`}
           >
             <div className="mb-2 border-b border-[#E8DCC9] px-3 pb-3">
@@ -138,8 +170,8 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   role="menuitem"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-2xl px-3 py-2.5 transition-colors hover:bg-[#F4E8D2] hover:text-[#173D3B] focus:bg-[#F4E8D2] focus:outline-none"
+                  onClick={closeMenuNow}
+                  className="rounded-2xl px-3 py-2.5 transition-all duration-200 ease-out hover:translate-x-1 hover:bg-[#F4E8D2] hover:text-[#173D3B] focus:bg-[#F4E8D2] focus:outline-none"
                 >
                   {item.label}
                 </Link>
@@ -148,8 +180,8 @@ export default function Header() {
               <Link
                 href="/services"
                 role="menuitem"
-                onClick={() => setMenuOpen(false)}
-                className="mt-3 rounded-full bg-[#1F4E4C] px-4 py-2.5 text-center text-white transition-colors hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none"
+                onClick={closeMenuNow}
+                className="mt-3 rounded-full bg-[#1F4E4C] px-4 py-2.5 text-center text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none"
               >
                 预约营养顾问
               </Link>
