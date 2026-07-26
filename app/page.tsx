@@ -1,24 +1,6 @@
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#FAF8F5]">
-      <header className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
-          <div>
-            <h2 className="text-3xl font-bold text-[#1F4E4C]">
-              加华月子餐
-            </h2>
-
-            <p className="text-xs tracking-widest text-[#D6B37F] uppercase">
-              Jiahua Postpartum Nutrition
-            </p>
-          </div>
-
-          <button className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full">
-            预约营养顾问
-          </button>
-        </div>
-      </header>
-
       <section className="max-w-7xl mx-auto px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
