@@ -171,7 +171,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact */}
-      <section className="py-16 bg-[#FAF8F5]">
+      <section id="contact" className="py-16 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="text-[#D6B37F] font-medium mb-3">
@@ -214,10 +214,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-14 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-8 text-center">
-          <div className="text-[#F4D7A7] text-lg font-semibold mb-4">
-            预约营养顾问
-          </div>
-
+ 
           <h2 className="text-4xl font-bold text-white leading-tight mb-6">
             让专业营养，
             <br />
@@ -230,11 +227,15 @@ export default function AboutPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition">
-              预约营养顾问
+              <a href="/about#contact" className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold">
+                预约营养顾问
+              </a>
             </button>
 
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">
-              查看服务方案
+              <a href="/services" className="text-white">
+                查看服务方案
+              </a>
             </button>
           </div>
         </div>

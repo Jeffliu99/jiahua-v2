@@ -71,7 +71,9 @@ export default function Footer() {
           <div>
 
             <h4 className="text-lg font-semibold mb-4">
-              联系我们
+              <a href="/about#contact" className="text-white">
+                联系我们
+              </a>
             </h4>
 
             <ul className="space-y-3 text-white/70">

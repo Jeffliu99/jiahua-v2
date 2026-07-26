@@ -204,11 +204,15 @@ export default function NutritionPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition">
-              预约营养顾问
+              <a href="/about#contact" className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full">
+                预约营养顾问
+              </a>
             </button>
 
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">
-              查看服务方案
+              <a href="/services" className="text-white">
+                查看服务方案
+              </a>
             </button>
           </div>
         </div>

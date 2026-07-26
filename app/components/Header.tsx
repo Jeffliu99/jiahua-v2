@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -16,11 +18,22 @@ export default function Header() {
     { href: "/about", label: "关于加华" },
   ];
 
+  const activeColor = "#C9A18A";
+
+  function isActive(href: string) {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
+
   function openMenu() {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
+
     setMenuOpen(true);
   }
 
@@ -28,6 +41,7 @@ export default function Header() {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
     }
+
     closeTimerRef.current = setTimeout(() => {
       setMenuOpen(false);
     }, 140);
@@ -38,6 +52,7 @@ export default function Header() {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
+
     setMenuOpen(false);
   }
 
@@ -60,6 +75,7 @@ export default function Header() {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
+
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
       }
@@ -81,6 +97,7 @@ export default function Header() {
             <div className="font-song whitespace-nowrap text-[20px] font-bold leading-none tracking-wide text-[#1F4E4C] md:text-[22px]">
               加华月子餐
             </div>
+
             <div className="mt-1 w-fit origin-left scale-x-[0.68] whitespace-nowrap text-[8px] font-semibold uppercase tracking-normal text-[#1F4E4C] md:text-[9px]">
               JIAHUA POSTPARTUM NUTRITION
             </div>
@@ -92,31 +109,43 @@ export default function Header() {
           aria-label="主要导航"
           className="ml-14 hidden min-[700px]:flex min-w-0 items-center gap-5 whitespace-nowrap font-song text-[13px] font-normal text-[#1F4E4C] md:gap-6 md:text-[14px] lg:gap-7 xl:gap-9 xl:text-[15px]"
         >
-          {navItems.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="relative block transition-colors hover:text-[#C79A55]"
-              aria-current={index === 0 ? "page" : undefined}
-            >
-              {item.label}
-              {index === 0 && (
-                <span className="absolute left-1/2 top-full mt-2 h-[2.5px] w-[30px] -translate-x-1/2 rounded-full bg-[#C79A55]" />
-              )}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const active = isActive(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className="group relative block transition-colors duration-300 ease-out"
+                style={{ color: active ? activeColor : undefined }}
+              >
+                <span className="transition-colors duration-300 ease-out group-hover:text-[#C9A18A]">
+                  {item.label}
+                </span>
+
+                <span
+                  className={`absolute left-1/2 top-full mt-2 h-[2.5px] w-[30px] -translate-x-1/2 rounded-full bg-[#C9A18A] transition-all duration-300 ease-out ${
+                    active
+                      ? "scale-x-100 opacity-100"
+                      : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-70"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA */}
         <Link
-          href="/services"
-          className="ml-auto hidden min-[700px]:inline-flex shrink-0 whitespace-nowrap rounded-full bg-[#1F4E4C] px-4 py-2 font-song text-[13px] font-medium text-white transition-colors hover:bg-[#173D3B] min-[1180px]:px-5 min-[1180px]:py-2.5 min-[1180px]:text-[15px]"
+          href="/about#contact"
+          className="ml-auto hidden min-[700px]:inline-flex shrink-0 whitespace-nowrap rounded-full bg-[#1F4E4C] px-4 py-2 font-song text-[13px] font-medium text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] hover:shadow-md min-[1180px]:px-5 min-[1180px]:py-2.5 min-[1180px]:text-[15px]"
         >
           <span className="hidden min-[1180px]:inline">预约营养顾问</span>
           <span className="inline min-[1180px]:hidden">咨询</span>
         </Link>
 
-        {/* Compact menu */}
+        {/* Compact navigation menu */}
         <div
           ref={menuRef}
           className="relative ml-auto mr-8 min-[700px]:hidden md:mr-12"
@@ -137,12 +166,12 @@ export default function Header() {
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((current) => !current)}
-            className="rounded-full bg-[#1F4E4C] px-5 py-2 font-song text-[15px] font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none focus:ring-2 focus:ring-[#D6B37F] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
+            className="rounded-full bg-[#1F4E4C] px-5 py-2 font-song text-[15px] font-medium text-white shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] hover:shadow-md focus:bg-[#173D3B] focus:outline-none focus:ring-2 focus:ring-[#C9A18A] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
           >
             网站导航
           </button>
 
-          {/* Invisible hover bridge: prevents dropdown from closing while moving from button to menu */}
+          {/* Invisible hover bridge */}
           <div className="absolute right-0 top-9 h-4 w-56" aria-hidden="true" />
 
           <div
@@ -159,29 +188,39 @@ export default function Header() {
               <p className="font-song text-[15px] font-semibold text-[#1F4E4C]">
                 网站导航
               </p>
+
               <p className="mt-1 font-song text-[11px] text-[#9B8A73]">
                 Jiahua Postpartum Nutrition
               </p>
             </div>
 
             <nav className="flex flex-col gap-1 font-song text-[16px] text-[#1F4E4C]">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  role="menuitem"
-                  onClick={closeMenuNow}
-                  className="rounded-2xl px-3 py-2.5 transition-all duration-200 ease-out hover:translate-x-1 hover:bg-[#F4E8D2] hover:text-[#173D3B] focus:bg-[#F4E8D2] focus:outline-none"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const active = isActive(item.href);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    role="menuitem"
+                    aria-current={active ? "page" : undefined}
+                    onClick={closeMenuNow}
+                    className={`rounded-2xl px-3 py-2.5 transition-all duration-300 ease-out focus:outline-none ${
+                      active
+                        ? "bg-[#F7EDEA] text-[#C9A18A] shadow-sm"
+                        : "hover:translate-x-1 hover:bg-[#F7EDEA] hover:text-[#C9A18A] focus:bg-[#F7EDEA]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
 
               <Link
-                href="/services"
+                href="/about#contact"
                 role="menuitem"
                 onClick={closeMenuNow}
-                className="mt-3 rounded-full bg-[#1F4E4C] px-4 py-2.5 text-center text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none"
+                className="mt-3 rounded-full bg-[#1F4E4C] px-4 py-2.5 text-center text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none"
               >
                 预约营养顾问
               </Link>
