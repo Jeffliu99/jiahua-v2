@@ -24,7 +24,6 @@ export default function Header() {
         <button className="bg-[#1F4E4C] text-white px-6 py-3 rounded-full">
           预约营养顾问
         </button>
-
       </div>
     </header>
   );

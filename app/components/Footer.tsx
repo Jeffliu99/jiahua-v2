@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#1F4E4C] text-white mt-24">
+    <footer className="bg-[#1F4E4C] text-white">
 
       <div className="max-w-7xl mx-auto px-8 py-16">
 
@@ -8,7 +8,7 @@ export default function Footer() {
           加华月子餐
         </h3>
 
-        <p className="text-lg mb-8 text-white/80">
+        <p className="text-lg text-white/80 mb-8">
           为新生命而喜悦，为妈妈的恢复而用心。
         </p>
 
@@ -20,16 +20,20 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
+
         <div className="max-w-7xl mx-auto px-8 py-6 text-sm text-white/60">
 
-          © 2026 加华月子餐 Jiahua Postpartum Nutrition.
-          All Rights Reserved.
+          <p>
+            © 2026 加华月子餐 Jiahua Postpartum Nutrition.
+            All Rights Reserved.
+          </p>
 
-          <div className="mt-2">
+          <p className="mt-2">
             专业产后营养支持｜GTA地区配送服务
-          </div>
+          </p>
 
         </div>
+
       </div>
 
     </footer>
