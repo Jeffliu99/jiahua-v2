@@ -49,7 +49,7 @@ export default function Home() {
       </section>
       
       {/* Why Choose Us */}
-      <section className="py-28 bg-[#FAF8F5]">
+      <section className="py-20 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
       
       {/* Services Section */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -332,7 +332,7 @@ export default function Home() {
       </section>
           
       {/* Stories Section */}
-      <section className="py-28 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -474,7 +474,7 @@ export default function Home() {
       </section>
       
       {/* CTA Section */}
-      <section className="py-28 bg-[#1F4E4C]">
+      <section className="py-20 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-8 text-center">
 
           <div className="text-[#D6B37F] font-medium mb-6">
