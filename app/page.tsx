@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "加华月子餐｜GTA专业产后营养支持与月子餐服务",
+  description:
+    "加华月子餐为大多伦多地区华人家庭提供专业产后营养支持、阶段化月子餐方案与贴心配送服务，陪伴妈妈安心度过产后恢复期。",
+};
 export default function Home() {
   return (
     <main className="bg-[#FAF8F5]">

@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "营养理念｜加华月子餐｜科学产后恢复与阶段化营养规划",
+  description:
+    "加华月子餐融合传统产后调理智慧与现代营养科学，根据产后不同恢复阶段制定营养重点，帮助妈妈更安心、更科学地恢复身体。",
+};
 export default function NutritionPage() {
   const stages = [
     {

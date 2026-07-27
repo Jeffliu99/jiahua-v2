@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "关于加华｜加华月子餐｜加拿大华人家庭的产后营养服务",
+  description:
+    "了解加华月子餐的品牌故事、服务理念、GTA配送范围与联系方式。我们为加拿大华人家庭提供专业、安心、贴心的产后营养支持。",
+};
+
 export default function AboutPage() {
   const values = [
     {

@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "妈妈故事｜加华月子餐｜来自GTA家庭的产后恢复体验",
+  description:
+    "阅读来自Markham、Richmond Hill、North York、Aurora等GTA家庭的月子餐体验，了解加华月子餐如何陪伴妈妈完成产后恢复旅程。",
+};
 export default function StoriesPage() {
   const stories = [
     {

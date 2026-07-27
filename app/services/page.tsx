@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "服务方案｜加华月子餐｜30天月子餐与产后恢复营养支持",
+  description:
+    "了解加华月子餐的服务方案，包括30天月子餐、剖腹产恢复方案、哺乳期营养方案与高端定制产后营养服务，适合不同恢复阶段的妈妈。",
+};
 export default function ServicesPage() {
   const services = [
     {
