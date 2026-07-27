@@ -29,13 +29,13 @@ export default function ContactPage() {
   return (
     <main className="bg-[#FAF8F5]">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-8 pt-16 pb-12">
+      <section className="max-w-7xl mx-auto px-6 md:px-8 pt-14 md:pt-16 pb-10 md:pb-12">
         <div className="max-w-4xl">
           <div className="inline-flex px-4 py-2 rounded-full bg-[#D6B37F]/15 text-[#B8915D] text-sm font-medium mb-6">
             预约咨询
           </div>
 
-          <h1 className="text-5xl font-bold leading-tight text-[#1F4E4C] mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[#1F4E4C] mb-6">
             预约营养顾问，
             <br />
             了解更适合自己的恢复方案。
@@ -49,14 +49,14 @@ export default function ContactPage() {
       </section>
 
       {/* Consultation Topics */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="text-[#D6B37F] font-medium mb-3">
               可以咨询什么
             </div>
 
-            <h2 className="text-4xl font-bold text-[#1F4E4C] mb-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-5">
               从方案选择到配送安排，都可以提前沟通
             </h2>
 
@@ -69,7 +69,7 @@ export default function ContactPage() {
             {consultationTopics.map((topic) => (
               <div
                 key={topic.number}
-                className="bg-[#FAF8F5] rounded-3xl p-8 border border-[#F0E8DD] hover:shadow-lg transition"
+                className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] hover:shadow-lg transition"
               >
                 <div className="text-[#D6B37F] text-lg font-semibold mb-3">
                   {topic.number}
@@ -89,15 +89,15 @@ export default function ContactPage() {
       </section>
 
       {/* Form */}
-      <section className="py-16 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#F0E8DD] shadow-sm">
+      <section className="py-12 md:py-16 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="bg-white rounded-3xl p-6 md:p-10 border border-[#F0E8DD] shadow-sm">
             <div className="mb-8">
               <div className="text-[#D6B37F] font-medium mb-3">
                 预约表单
               </div>
 
-              <h2 className="text-4xl font-bold text-[#1F4E4C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-4">
                 留下您的咨询信息
               </h2>
 
@@ -190,14 +190,14 @@ export default function ContactPage() {
               <div className="md:col-span-2 flex flex-col sm:flex-row gap-4 pt-2">
                 <button
                   type="button"
-                  className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full font-bold hover:bg-[#173D3B] transition"
+                  className="w-full sm:w-auto bg-[#1F4E4C] text-white px-8 py-4 rounded-full font-bold hover:bg-[#173D3B] transition"
                 >
                   提交咨询信息
                 </button>
 
                 <Link
                   href="/services"
-                  className="border border-[#D6B37F] text-[#1F4E4C] px-8 py-4 rounded-full font-bold hover:bg-[#D6B37F]/10 transition text-center"
+                  className="w-full sm:w-auto border border-[#D6B37F] text-[#1F4E4C] px-8 py-4 rounded-full font-bold hover:bg-[#D6B37F]/10 transition text-center"
                 >
                   查看服务方案
                 </Link>
@@ -208,14 +208,14 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="text-[#D6B37F] font-medium mb-3">
               联系方式
             </div>
 
-            <h2 className="text-4xl font-bold text-[#1F4E4C] mb-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-5">
               选择适合您的方式联系我们
             </h2>
 
@@ -226,7 +226,7 @@ export default function ContactPage() {
 
           <div className="grid lg:grid-cols-4 gap-6">
             {/* Phone */}
-            <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[340px] flex flex-col items-center justify-center">
+            <div className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center min-h-[320px] md:min-h-[340px] flex flex-col items-center justify-center">
               <div className="w-16 h-16 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-8">
                 ☎
               </div>
@@ -244,7 +244,7 @@ export default function ContactPage() {
             </div>
 
             {/* WhatsApp */}
-            <div className="bg-[#FFF7F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[340px] flex flex-col items-center justify-center">
+            <div className="bg-[#FFF7F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center min-h-[320px] md:min-h-[340px] flex flex-col items-center justify-center">
               <div className="w-16 h-16 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-8">
                 ☎
               </div>
@@ -266,8 +266,8 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* WeChat */}
-            <div className="bg-[#F1FAFC] rounded-3xl p-8 border border-[#E6F1F4] text-center min-h-[340px] flex flex-col items-center justify-center">
+            {/* WeChat - single QR code */}
+            <div className="bg-[#F1FAFC] rounded-3xl p-6 md:p-8 border border-[#E6F1F4] text-center min-h-[320px] md:min-h-[340px] flex flex-col items-center justify-center">
               <div className="w-16 h-16 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-8">
                 💬
               </div>
@@ -276,22 +276,12 @@ export default function ContactPage() {
                 添加微信｜Add WeChat:
               </h3>
 
-              <div className="flex gap-4 justify-center">
-                <div className="w-28 h-32 bg-white rounded-xl p-2 border border-[#F0E8DD] flex items-center justify-center">
-                  <img
-                    src="/images/wechat-qr-1.png"
-                    alt="WeChat QR Code 1"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                <div className="w-28 h-32 bg-white rounded-xl p-2 border border-[#F0E8DD] flex items-center justify-center">
-                  <img
-                    src="/images/wechat-qr-2.png"
-                    alt="WeChat QR Code 2"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+              <div className="w-36 h-36 bg-white rounded-xl p-2 border border-[#F0E8DD] flex items-center justify-center">
+                <img
+                  src="/images/wechat-qr.png"
+                  alt="WeChat QR Code"
+                  className="w-full h-full object-contain"
+                />
               </div>
 
               <p className="mt-4 text-sm text-gray-500">
@@ -302,7 +292,7 @@ export default function ContactPage() {
             {/* Email + Location */}
             <div className="grid gap-6">
               {/* Email */}
-              <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[160px] flex flex-col items-center justify-center">
+              <div className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center min-h-[160px] flex flex-col items-center justify-center">
                 <div className="w-14 h-14 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-5">
                   ✉
                 </div>
@@ -320,7 +310,7 @@ export default function ContactPage() {
               </div>
 
               {/* Location */}
-              <div className="bg-[#FFF7F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[160px] flex flex-col items-center justify-center">
+              <div className="bg-[#FFF7F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center min-h-[160px] flex flex-col items-center justify-center">
                 <div className="w-14 h-14 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-5">
                   📍
                 </div>
@@ -341,13 +331,13 @@ export default function ContactPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 bg-[#1F4E4C]">
-        <div className="max-w-4xl mx-auto px-8 text-center">
+      <section className="py-12 md:py-14 bg-[#1F4E4C]">
+        <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
           <div className="text-[#F4D7A7] text-lg font-semibold mb-4">
             为妈妈的恢复而用心
           </div>
 
-          <h2 className="text-4xl font-bold text-white leading-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
             从第一步咨询开始，
             <br />
             让恢复安排更清楚、更安心。
