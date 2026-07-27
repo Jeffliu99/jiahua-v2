@@ -26,29 +26,6 @@ export default function ContactPage() {
     },
   ];
 
-  const contactCards = [
-    {
-      title: "微信咨询",
-      text: "通过微信客服了解方案、配送范围与预约流程。",
-      note: "建议优先使用微信咨询",
-    },
-    {
-      title: "电话咨询",
-      text: "如需快速沟通服务细节，可通过电话联系。",
-      note: "905-XXX-XXXX",
-    },
-    {
-      title: "邮箱联系",
-      text: "适合发送详细需求、配送地址或服务问题。",
-      note: "info@jiahuameal.ca",
-    },
-    {
-      title: "服务区域",
-      text: "服务覆盖大多伦多地区多个社区。",
-      note: "Greater Toronto Area",
-    },
-  ];
-
   return (
     <main className="bg-[#FAF8F5]">
       {/* Hero */}
@@ -111,145 +88,253 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Form + Contact Info */}
+      {/* Form */}
       <section className="py-16 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
-            {/* Form */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#F0E8DD] shadow-sm">
-              <div className="mb-8">
-                <div className="text-[#D6B37F] font-medium mb-3">
-                  预约表单
-                </div>
-
-                <h2 className="text-4xl font-bold text-[#1F4E4C] mb-4">
-                  留下您的咨询信息
-                </h2>
-
-                <p className="text-gray-600 leading-8">
-                  目前此表单为前端展示版。正式上线前，可接入邮箱、表单服务或微信客服流程。
-                </p>
+          <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#F0E8DD] shadow-sm">
+            <div className="mb-8">
+              <div className="text-[#D6B37F] font-medium mb-3">
+                预约表单
               </div>
 
-              <form className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    姓名
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="请输入姓名"
-                    className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
-                  />
-                </div>
+              <h2 className="text-4xl font-bold text-[#1F4E4C] mb-4">
+                留下您的咨询信息
+              </h2>
 
-                <div>
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    电话
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="请输入联系电话"
-                    className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    微信
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="请输入微信号"
-                    className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    所在城市
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="例如 Markham / North York"
-                    className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    预产期 / 生产日期
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="例如 2026年8月 / 已生产"
-                    className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    感兴趣方案
-                  </label>
-                  <select className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]">
-                    <option>请选择服务方案</option>
-                    <option>30天月子餐方案</option>
-                    <option>剖腹产恢复方案</option>
-                    <option>哺乳期营养方案</option>
-                    <option>高端定制方案</option>
-                    <option>暂不确定，需要咨询</option>
-                  </select>
-                </div>
-
-                <div className="md:col-span-2">
-                  <label className="block text-[#1F4E4C] font-semibold mb-2">
-                    留言
-                  </label>
-                  <textarea
-                    rows={5}
-                    placeholder="可以简单说明恢复阶段、饮食偏好、配送区域或其他需求。"
-                    className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
-                  />
-                </div>
-
-                <div className="md:col-span-2 flex flex-col sm:flex-row gap-4 pt-2">
-                  <button
-                    type="button"
-                    className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full font-bold hover:bg-[#173D3B] transition"
-                  >
-                    提交咨询信息
-                  </button>
-
-                  <Link
-                    href="/services"
-                    className="border border-[#D6B37F] text-[#1F4E4C] px-8 py-4 rounded-full font-bold hover:bg-[#D6B37F]/10 transition text-center"
-                  >
-                    查看服务方案
-                  </Link>
-                </div>
-              </form>
+              <p className="text-gray-600 leading-8">
+                目前此表单为前端展示版。正式上线前，可接入邮箱、表单服务或微信客服流程。
+              </p>
             </div>
 
-            {/* Contact Cards */}
-            <div className="grid gap-5">
-              {contactCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="bg-white rounded-3xl p-7 border border-[#F0E8DD]"
+            <form className="grid md:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  姓名
+                </label>
+                <input
+                  type="text"
+                  placeholder="请输入姓名"
+                  className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  电话
+                </label>
+                <input
+                  type="tel"
+                  placeholder="请输入联系电话"
+                  className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  微信
+                </label>
+                <input
+                  type="text"
+                  placeholder="请输入微信号"
+                  className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  所在城市
+                </label>
+                <input
+                  type="text"
+                  placeholder="例如 Markham / North York"
+                  className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  预产期 / 生产日期
+                </label>
+                <input
+                  type="text"
+                  placeholder="例如 2026年8月 / 已生产"
+                  className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  感兴趣方案
+                </label>
+                <select className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]">
+                  <option>请选择服务方案</option>
+                  <option>30天月子餐方案</option>
+                  <option>剖腹产恢复方案</option>
+                  <option>哺乳期营养方案</option>
+                  <option>高端定制方案</option>
+                  <option>暂不确定，需要咨询</option>
+                </select>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-[#1F4E4C] font-semibold mb-2">
+                  留言
+                </label>
+                <textarea
+                  rows={5}
+                  placeholder="可以简单说明恢复阶段、饮食偏好、配送区域或其他需求。"
+                  className="w-full rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] px-4 py-3 outline-none focus:border-[#D6B37F]"
+                />
+              </div>
+
+              <div className="md:col-span-2 flex flex-col sm:flex-row gap-4 pt-2">
+                <button
+                  type="button"
+                  className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full font-bold hover:bg-[#173D3B] transition"
                 >
-                  <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">
-                    {card.title}
-                  </h3>
+                  提交咨询信息
+                </button>
 
-                  <p className="text-gray-600 leading-7 mb-3">
-                    {card.text}
-                  </p>
+                <Link
+                  href="/services"
+                  className="border border-[#D6B37F] text-[#1F4E4C] px-8 py-4 rounded-full font-bold hover:bg-[#D6B37F]/10 transition text-center"
+                >
+                  查看服务方案
+                </Link>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
 
-                  <p className="text-[#1F4E4C] font-semibold">
-                    {card.note}
-                  </p>
+      {/* Contact Methods */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="text-[#D6B37F] font-medium mb-3">
+              联系方式
+            </div>
+
+            <h2 className="text-4xl font-bold text-[#1F4E4C] mb-5">
+              选择适合您的方式联系我们
+            </h2>
+
+            <p className="text-lg leading-8 text-gray-600">
+              您可以通过电话、WhatsApp、微信、邮箱或地址信息与我们取得联系。
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-4 gap-6">
+            {/* Phone */}
+            <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[340px] flex flex-col items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-8">
+                ☎
+              </div>
+
+              <h3 className="text-xl font-bold text-[#1F4E4C] mb-3 leading-7">
+                直接拨打电话｜Call Hotline:
+              </h3>
+
+              <a
+                href="tel:+16477273202"
+                className="text-[#E7785B] font-semibold text-lg hover:opacity-80 transition"
+              >
+                +1(647)-727-3202
+              </a>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="bg-[#FFF7F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[340px] flex flex-col items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-8">
+                ☎
+              </div>
+
+              <h3 className="text-xl font-bold text-[#1F4E4C] mb-5 leading-7">
+                添加WhatsApp｜Add WhatsApp:
+              </h3>
+
+              <div className="w-36 h-36 bg-white rounded-xl p-2 border border-[#F0E8DD] flex items-center justify-center">
+                <img
+                  src="/images/whatsapp-qr.png"
+                  alt="WhatsApp QR Code"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
+              <p className="mt-4 text-sm text-gray-500">
+                扫码添加 WhatsApp
+              </p>
+            </div>
+
+            {/* WeChat */}
+            <div className="bg-[#F1FAFC] rounded-3xl p-8 border border-[#E6F1F4] text-center min-h-[340px] flex flex-col items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-8">
+                💬
+              </div>
+
+              <h3 className="text-xl font-bold text-[#1F4E4C] mb-5 leading-7">
+                添加微信｜Add WeChat:
+              </h3>
+
+              <div className="flex gap-4 justify-center">
+                <div className="w-28 h-32 bg-white rounded-xl p-2 border border-[#F0E8DD] flex items-center justify-center">
+                  <img
+                    src="/images/wechat-qr-1.png"
+                    alt="WeChat QR Code 1"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-              ))}
+
+                <div className="w-28 h-32 bg-white rounded-xl p-2 border border-[#F0E8DD] flex items-center justify-center">
+                  <img
+                    src="/images/wechat-qr-2.png"
+                    alt="WeChat QR Code 2"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm text-gray-500">
+                扫码添加微信客服
+              </p>
+            </div>
+
+            {/* Email + Location */}
+            <div className="grid gap-6">
+              {/* Email */}
+              <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[160px] flex flex-col items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-5">
+                  ✉
+                </div>
+
+                <h3 className="text-lg font-bold text-[#1F4E4C] mb-2">
+                  电子邮件｜Send Email:
+                </h3>
+
+                <a
+                  href="mailto:jiahuamealca@gmail.com"
+                  className="text-[#E7785B] font-semibold hover:opacity-80 transition break-all"
+                >
+                  jiahuamealca@gmail.com
+                </a>
+              </div>
+
+              {/* Location */}
+              <div className="bg-[#FFF7F5] rounded-3xl p-8 border border-[#F0E8DD] text-center min-h-[160px] flex flex-col items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-[#E7785B] text-white flex items-center justify-center text-2xl mb-5">
+                  📍
+                </div>
+
+                <h3 className="text-lg font-bold text-[#1F4E4C] mb-2">
+                  联系地址｜Location:
+                </h3>
+
+                <p className="text-[#E7785B] font-semibold leading-7">
+                  625 Cochrane Dr Markham
+                  <br />
+                  ON L3R 9R9
+                </p>
+              </div>
             </div>
           </div>
         </div>
