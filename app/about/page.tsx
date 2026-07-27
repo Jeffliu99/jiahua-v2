@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-[#FAF8F5]">
+      <section id="contact" className="py-16 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="text-[#D6B37F] font-medium mb-3">
