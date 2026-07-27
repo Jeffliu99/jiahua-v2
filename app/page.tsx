@@ -33,7 +33,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
 
               <button className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full">
-                <a href="/about#contact" className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full">
+                <a href="/contact" className="bg-[#1F4E4C] text-white px-8 py-4 rounded-full">
                   预约营养顾问
                 </a>
               </button>
@@ -487,7 +487,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
             <button className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition">
-              <a href="/about#contact" className="bg-[#F4D7A7] text-[#173D3B] font-semibold">
+              <a href="/contact" className="bg-[#F4D7A7] text-[#173D3B] font-semibold">
                 预约营养顾问
               </a>
             </button>

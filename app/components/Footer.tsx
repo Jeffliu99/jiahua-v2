@@ -12,7 +12,7 @@ export default function Footer() {
     { href: "/about", label: "品牌故事" },
     { href: "/nutrition", label: "营养理念" },
     { href: "/stories", label: "妈妈故事" },
-    { href: "/about#contact", label: "联系我们" },
+    { href: "/contact", label: "联系我们" },
   ];
 
   return (
@@ -87,22 +87,22 @@ export default function Footer() {
 
             <ul className="space-y-3 text-white/75">
               <li>
-                <Link href="/about#contact" className="hover:text-[#F4D7A7] transition-colors">
+                <Link href="/contact" className="hover:text-[#F4D7A7] transition-colors">
                   预约营养顾问
                 </Link>
               </li>
               <li>
-                <Link href="/about#contact" className="hover:text-[#F4D7A7] transition-colors">
+                <Link href="/contact" className="hover:text-[#F4D7A7] transition-colors">
                   微信客服咨询
                 </Link>
               </li>
               <li>
-                <Link href="/about#contact" className="hover:text-[#F4D7A7] transition-colors">
+                <Link href="/contact" className="hover:text-[#F4D7A7] transition-colors">
                   Greater Toronto Area
                 </Link>
               </li>
               <li>
-                <Link href="/about#contact" className="hover:text-[#F4D7A7] transition-colors">
+                <Link href="/contact" className="hover:text-[#F4D7A7] transition-colors">
                   获取配送范围确认
                 </Link>
               </li>

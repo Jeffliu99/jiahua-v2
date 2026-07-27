@@ -138,7 +138,7 @@ export default function Header() {
 
         {/* CTA */}
         <Link
-          href="/about#contact"
+          href="/contact"
           className="ml-auto hidden min-[700px]:inline-flex shrink-0 whitespace-nowrap rounded-full bg-[#1F4E4C] px-4 py-2 font-song text-[13px] font-medium text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] hover:shadow-md min-[1180px]:px-5 min-[1180px]:py-2.5 min-[1180px]:text-[15px]"
         >
           <span className="hidden min-[1180px]:inline">预约营养顾问</span>
@@ -217,7 +217,7 @@ export default function Header() {
               })}
 
               <Link
-                href="/about#contact"
+                href="/contact"
                 role="menuitem"
                 onClick={closeMenuNow}
                 className="mt-3 rounded-full bg-[#1F4E4C] px-4 py-2.5 text-center text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#173D3B] focus:bg-[#173D3B] focus:outline-none"

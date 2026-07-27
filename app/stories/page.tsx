@@ -184,7 +184,7 @@ export default function StoriesPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition">
-              <a href="/about#contact" className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold">
+              <a href="/contact" className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold">
                 预约营养顾问
               </a>
             </button>
