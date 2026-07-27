@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "关于加华｜加华月子餐｜加拿大华人家庭的产后营养服务",
@@ -39,13 +40,13 @@ export default function AboutPage() {
   return (
     <main className="bg-[#FAF8F5]">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-8 pt-16 pb-12">
+      <section className="max-w-7xl mx-auto px-6 md:px-8 pt-14 md:pt-16 pb-10 md:pb-12">
         <div className="max-w-4xl">
           <div className="inline-flex px-4 py-2 rounded-full bg-[#D6B37F]/15 text-[#B8915D] text-sm font-medium mb-6">
             关于加华
           </div>
 
-          <h1 className="text-5xl font-bold leading-tight text-[#1F4E4C] mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[#1F4E4C] mb-6">
             为新生命而喜悦，
             <br />
             为妈妈的恢复而用心。
@@ -59,15 +60,15 @@ export default function AboutPage() {
       </section>
 
       {/* Brand Story */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="text-[#D6B37F] font-medium mb-3">
                 品牌故事
               </div>
 
-              <h2 className="text-4xl font-bold text-[#1F4E4C] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-6">
                 一段恢复旅程，值得被认真照顾
               </h2>
 
@@ -89,7 +90,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-[#FAF8F5] rounded-3xl p-10 border border-[#F0E8DD]">
+            <div className="bg-[#FAF8F5] rounded-3xl p-6 md:p-10 border border-[#F0E8DD]">
               <div className="text-[#D6B37F] text-lg font-semibold mb-4">
                 Jiahua Postpartum Nutrition
               </div>
@@ -99,7 +100,8 @@ export default function AboutPage() {
               </h3>
 
               <p className="text-gray-600 leading-8">
-                我们希望加华月子餐呈现的不只是餐食本身，而是一套围绕产后恢复、家庭照护与日常安心体验而设计的服务。
+                我们希望加华月子餐呈现的不只是餐食本身，
+                而是一套围绕产后恢复、家庭照护与日常安心体验而设计的服务。
               </p>
             </div>
           </div>
@@ -107,14 +109,14 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section id="contact" className="py-16 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-12 md:py-16 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="text-[#D6B37F] font-medium mb-3">
               我们的坚持
             </div>
 
-            <h2 className="text-4xl font-bold text-[#1F4E4C] mb-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-5">
               用专业、品质与温度支持恢复
             </h2>
 
@@ -127,7 +129,7 @@ export default function AboutPage() {
             {values.map((value) => (
               <div
                 key={value.number}
-                className="bg-white rounded-3xl p-8 border border-[#F0E8DD] hover:shadow-lg transition"
+                className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD] hover:shadow-lg transition"
               >
                 <div className="text-[#D6B37F] text-lg font-semibold mb-3">
                   {value.number}
@@ -147,15 +149,15 @@ export default function AboutPage() {
       </section>
 
       {/* Service Area */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <div className="text-[#D6B37F] font-medium mb-3">
                 服务范围
               </div>
 
-              <h2 className="text-4xl font-bold text-[#1F4E4C] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-6">
                 服务大多伦多地区家庭
               </h2>
 
@@ -179,72 +181,110 @@ export default function AboutPage() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-16 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-8">
+      <section id="contact" className="py-12 md:py-16 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="text-[#D6B37F] font-medium mb-3">
               联系我们
             </div>
 
-            <h2 className="text-4xl font-bold text-[#1F4E4C] mb-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-5">
               与加华月子餐取得联系
             </h2>
 
             <p className="text-lg leading-8 text-gray-600">
-              如果您想了解月子餐方案、配送范围或预约营养顾问，欢迎通过以下方式联系我们。
+              如果您想了解月子餐方案、配送范围或预约营养顾问，
+              欢迎进入预约咨询页面，选择适合您的联系方式。
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-3xl p-7 border border-[#F0E8DD]">
-              <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">电话咨询</h3>
-              <p className="text-gray-600 leading-7">905-XXX-XXXX</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-[#1F4E4C] mb-3">
+                预约营养顾问
+              </h3>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                根据恢复阶段、所在城市与饮食需求，了解更适合自己的服务方案。
+              </p>
+
+              <Link
+                href="/contact"
+                className="inline-flex w-full sm:w-auto justify-center bg-[#1F4E4C] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#173D3B] transition"
+              >
+                前往预约咨询
+              </Link>
             </div>
 
-            <div className="bg-white rounded-3xl p-7 border border-[#F0E8DD]">
-              <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">邮箱联系</h3>
-              <p className="text-gray-600 leading-7">info@jiahuameal.ca</p>
+            <div className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-[#1F4E4C] mb-3">
+                微信 / WhatsApp
+              </h3>
+
+              <p className="text-gray-600 leading-8 mb-6">
+                可通过二维码添加客服，咨询月子餐方案、配送范围与预约流程。
+              </p>
+
+              <Link
+                href="/contact"
+                className="inline-flex w-full sm:w-auto justify-center border border-[#D6B37F] text-[#1F4E4C] px-6 py-3 rounded-full font-semibold hover:bg-[#D6B37F]/10 transition"
+              >
+                查看联系方式
+              </Link>
             </div>
 
-            <div className="bg-white rounded-3xl p-7 border border-[#F0E8DD]">
-              <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">微信咨询</h3>
-              <p className="text-gray-600 leading-7">微信客服咨询</p>
-            </div>
+            <div className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD] text-center hover:shadow-lg transition">
+              <h3 className="text-2xl font-bold text-[#1F4E4C] mb-3">
+                GTA 配送服务
+              </h3>
 
-            <div className="bg-white rounded-3xl p-7 border border-[#F0E8DD]">
-              <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">服务地区</h3>
-              <p className="text-gray-600 leading-7">Greater Toronto Area</p>
+              <p className="text-gray-600 leading-8 mb-6">
+                服务覆盖大多伦多地区多个社区，具体配送范围可在咨询时确认。
+              </p>
+
+              <Link
+                href="/contact"
+                className="inline-flex w-full sm:w-auto justify-center border border-[#D6B37F] text-[#1F4E4C] px-6 py-3 rounded-full font-semibold hover:bg-[#D6B37F]/10 transition"
+              >
+                确认配送范围
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-14 bg-[#1F4E4C]">
-        <div className="max-w-4xl mx-auto px-8 text-center">
- 
-          <h2 className="text-4xl font-bold text-white leading-tight mb-6">
+      <section className="py-12 md:py-14 bg-[#1F4E4C]">
+        <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
+          <div className="text-[#F4D7A7] text-lg font-semibold mb-4">
+            预约营养顾问
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
             让专业营养，
             <br />
             成为恢复路上的安心陪伴。
           </h2>
 
           <p className="text-lg text-white leading-8 max-w-2xl mx-auto mb-8">
-            如需了解更适合自己的产后营养方案，欢迎预约咨询，我们将根据您的恢复阶段与家庭需求提供建议。
+            如需了解更适合自己的产后营养方案，欢迎预约咨询，
+            我们将根据您的恢复阶段与家庭需求提供建议。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition">
-              <a href="/contact" className="bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold">
-                预约营养顾问
-              </a>
-            </button>
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition text-center"
+            >
+              预约营养顾问
+            </Link>
 
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">
-              <a href="/services" className="text-white">
-                查看服务方案
-              </a>
-            </button>
+            <Link
+              href="/services"
+              className="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-center"
+            >
+              查看服务方案
+            </Link>
           </div>
         </div>
       </section>
