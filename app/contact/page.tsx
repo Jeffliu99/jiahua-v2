@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "./ContactForm";
+import PageHero from "../components/PageHero";
 
 export const metadata: Metadata = {
   title: "预约咨询｜加华月子餐",
@@ -44,37 +45,18 @@ const qrCards = [
 export default function ContactPage() {
   return (
     <main className="bg-[#FAF8F5] font-sans">
-      {/* Page Hero */}
-      <section className="relative overflow-hidden bg-[#FAF8F5]">
-        <div
-          className="absolute inset-0 bg-cover bg-center md:bg-right"
-          style={{ backgroundImage: "url('/images/hero.png')" }}
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/88 to-[#FAF8F5]/35" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/10 via-transparent to-[#FAF8F5]" />
+      <PageHero
+        eyebrow="预约咨询"
+        title={
+          <>
+            告诉我们您的需要，
+            <br />
+            我们半小时内为您匹配合适方案。
+          </>
+        }
+        description="填写表单后，加华月子餐会根据您的生产阶段、所在区域与服务需求，尽快与您联系。"
+      />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-14 md:py-20">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#F0E8DD] bg-white/75 px-4 py-2 text-sm font-medium text-[#B8915D] shadow-sm backdrop-blur mb-5">
-              <span aria-hidden="true">✦</span>
-              <span>预约咨询</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[#1F4E4C] mb-5">
-              告诉我们您的需要，
-              <br />
-              半小时内为您匹配合适方案。
-            </h1>
-
-            <p className="max-w-xl text-base md:text-lg leading-8 text-gray-600">
-              填写表单后，加华月子餐会根据您的生产阶段、所在区域与服务需求，尽快与您联系。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Content */}
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-start">
