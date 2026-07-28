@@ -1,133 +1,92 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "../components/PageHero";
 
 export const metadata: Metadata = {
-  title: "服务方案｜加华月子餐｜30天月子餐与产后恢复营养支持",
+  title: "服务方案｜加华月子餐",
   description:
-    "了解加华月子餐的服务方案，包括30天月子餐、剖腹产恢复方案、哺乳期营养方案与高端定制产后营养服务，适合不同恢复阶段的妈妈。",
+    "查看加华月子餐服务方案，包括 30 天月子餐、剖腹产恢复、哺乳期营养与高端定制方案。",
 };
 
 export default function ServicesPage() {
-  const services = [
+  const plans = [
     {
-      number: "01",
       title: "30天月子餐方案",
-      description:
-        "为产后恢复关键期精心设计的阶段化营养菜单。从产后初期调理，到体力恢复与营养补充，每日均衡搭配，让身体循序渐进地恢复活力。",
-      suitableFor: ["顺产妈妈", "初次坐月子妈妈", "希望获得全面营养支持的家庭"],
-      action: "了解更多",
-      href: "/services",
+      tag: "完整恢复支持",
+      text: "适合希望获得完整产后餐食安排的妈妈，覆盖产后恢复关键阶段。",
+      points: ["阶段化菜单安排", "每日新鲜制作", "适合多数家庭的基础选择"],
     },
     {
-      number: "02",
       title: "剖腹产恢复方案",
-      description:
-        "针对术后恢复特点制定营养规划，兼顾恢复期间的饮食需求与身体调养，帮助恢复过程更加安心从容。",
-      suitableFor: ["剖腹产妈妈", "术后恢复阶段妈妈", "需要额外恢复支持的家庭"],
-      action: "了解更多",
-      href: "/services",
+      tag: "术后恢复关注",
+      text: "针对剖腹产后的饮食舒适度与恢复节奏，提供更温和的餐食搭配。",
+      points: ["重视清淡与易消化", "照顾术后恢复节奏", "减少家庭备餐压力"],
     },
     {
-      number: "03",
       title: "哺乳期营养方案",
-      description:
-        "为母乳喂养阶段提供科学营养补充，帮助满足产后恢复与哺乳阶段的双重需求，提供持续的营养支持。",
-      suitableFor: ["哺乳期妈妈", "母乳喂养家庭", "需要持续营养支持的妈妈"],
-      action: "了解更多",
-      href: "/services",
+      tag: "持续营养支持",
+      text: "为哺乳阶段提供更持续的营养支持，帮助妈妈在新生活节奏中保持稳定。",
+      points: ["关注持续营养补充", "适合哺乳期家庭", "菜单搭配更灵活"],
     },
     {
-      number: "04",
       title: "高端定制方案",
-      description:
-        "根据个人体质、恢复进度与饮食习惯进行专属规划，从营养搭配到配送安排，提供更具个性化的服务体验。",
-      suitableFor: ["特殊饮食需求", "高品质恢复需求", "个性化营养规划需求"],
-      action: "预约咨询",
-      href: "/contact",
+      tag: "个性化安排",
+      text: "适合有特别口味、配送或家庭安排需求的客户，咨询后匹配更合适方案。",
+      points: ["根据需求沟通安排", "适合个性化偏好", "可配合家庭节奏"],
     },
   ];
 
-  const processSteps = [
-    {
-      number: "01",
-      title: "预约咨询",
-      text: "了解妈妈的恢复阶段、饮食习惯与家庭需求。",
-    },
-    {
-      number: "02",
-      title: "确认方案",
-      text: "根据产后阶段与个人需求，选择合适的营养方案。",
-    },
-    {
-      number: "03",
-      title: "每日制作",
-      text: "精选食材，当日制作，兼顾营养、品质与口感。",
-    },
-    {
-      number: "04",
-      title: "配送到家",
-      text: "覆盖 GTA 多个区域，让家庭照护更加轻松省心。",
-    },
+  const process = [
+    "提交预约咨询",
+    "了解生产阶段与所在区域",
+    "匹配合适服务方案",
+    "确认餐食与配送安排",
   ];
 
   return (
-    <main className="bg-[#FAF8F5]">
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 pt-14 md:pt-16 pb-10 md:pb-12">
-        <div className="max-w-4xl">
-          <div className="inline-flex px-4 py-2 rounded-full bg-[#D6B37F]/15 text-[#B8915D] text-sm font-medium mb-6">
-            服务方案
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[#1F4E4C] mb-6">
+    <main className="bg-[#FAF8F5] font-sans">
+      <PageHero
+        eyebrow="服务方案"
+        title={
+          <>
             为不同恢复阶段，
             <br />
-            提供更适合的营养支持。
-          </h1>
+            提供合适的月子餐方案。
+          </>
+        }
+        description="从完整月子餐到剖腹产恢复、哺乳期营养与高端定制，加华月子餐为家庭提供灵活选择。"
+      />
 
-          <p className="text-lg leading-8 text-gray-600 max-w-3xl">
-            每一位妈妈的身体状况、恢复节奏和营养需求都不尽相同。
-            加华月子餐根据产后不同阶段的恢复重点，提供多元化营养方案，
-            帮助妈妈更安心、更科学地度过重要的恢复时期。
-          </p>
-        </div>
-      </section>
-
-      {/* Services */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service) => (
+          <div className="grid md:grid-cols-2 gap-7">
+            {plans.map((plan) => (
               <div
-                key={service.number}
-                className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] hover:shadow-lg transition"
+                key={plan.title}
+                className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-6 md:p-8"
               >
-                <div className="text-[#D6B37F] text-lg font-semibold mb-3">
-                  {service.number}
+                <div className="inline-flex rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-[#B8915D] mb-4">
+                  {plan.tag}
                 </div>
-
-                <h2 className="text-2xl font-bold text-[#1F4E4C] mb-4">
-                  {service.title}
+                <h2 className="text-2xl md:text-3xl font-bold text-[#1F4E4C] mb-4">
+                  {plan.title}
                 </h2>
-
-                <p className="text-gray-600 leading-8 mb-6">
-                  {service.description}
-                </p>
-
-                <div className="text-sm text-gray-500 mb-6">
-                  适合对象：
-                  <ul className="mt-3 space-y-2">
-                    {service.suitableFor.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-
+                <p className="text-gray-600 leading-8 mb-6">{plan.text}</p>
+                <ul className="space-y-3 mb-7">
+                  {plan.points.map((point) => (
+                    <li key={point} className="flex gap-3 text-gray-600 leading-7">
+                      <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1F4E4C] text-[11px] font-bold text-white">
+                        ✓
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
                 <Link
-                  href={service.href}
-                  className="inline-flex text-[#1F4E4C] font-semibold hover:text-[#D6B37F] transition"
+                  href="/contact"
+                  className="inline-flex rounded-full bg-[#1F4E4C] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#173D3B]"
                 >
-                  {service.action} →
+                  咨询此方案
                 </Link>
               </div>
             ))}
@@ -135,78 +94,43 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process */}
       <section className="py-12 md:py-16 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="text-[#D6B37F] font-medium mb-3">
-              服务流程
-            </div>
-
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="text-[#D6B37F] font-medium mb-3">预约流程</div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-5">
-              从咨询到配送，每一步都更省心
+              从咨询到确认，流程清楚简单
             </h2>
-
-            <p className="text-lg leading-8 text-gray-600">
-              我们希望用更清晰的流程与更贴心的服务，让家庭在产后恢复阶段少一些压力，多一份安心。
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {processSteps.map((step) => (
+          <div className="grid md:grid-cols-4 gap-5">
+            {process.map((item, index) => (
               <div
-                key={step.number}
-                className="bg-white rounded-3xl p-6 md:p-7 border border-[#F0E8DD]"
+                key={item}
+                className="rounded-3xl border border-[#F0E8DD] bg-white p-6 text-center"
               >
-                <div className="text-[#D6B37F] text-sm font-semibold mb-3">
-                  {step.number}
+                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#1F4E4C] text-sm font-bold text-white">
+                  {index + 1}
                 </div>
-
-                <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">
-                  {step.title}
-                </h3>
-
-                <p className="text-gray-600 leading-7 text-sm">
-                  {step.text}
-                </p>
+                <h3 className="font-bold text-[#1F4E4C] leading-7">{item}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-12 md:py-14 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
-          <div className="text-[#F4D7A7] text-lg font-semibold mb-4">
-            开启恢复之旅
-          </div>
-
+          <div className="text-[#F4D7A7] font-semibold mb-4">不确定选哪一个？</div>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
-            恢复没有标准答案，
-            <br />
-            但专业营养能让身体走得更从容。
+            告诉我们您的需要，我们半小时内为您匹配合适方案。
           </h2>
-
-          <p className="text-lg text-white leading-8 max-w-2xl mx-auto mb-8">
-            如果您正在为产后恢复、月子餐选择或配送服务做准备，欢迎预约营养顾问，了解更适合自己的方案。
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition text-center"
-            >
-              预约营养顾问
-            </Link>
-
-            <Link
-              href="/"
-              className="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-center"
-            >
-              返回首页
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex w-full sm:w-auto justify-center rounded-full bg-[#F4D7A7] px-8 py-4 font-semibold text-[#173D3B] transition hover:opacity-90"
+          >
+            预约咨询
+          </Link>
         </div>
       </section>
     </main>
