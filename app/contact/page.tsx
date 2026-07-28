@@ -62,7 +62,7 @@ export default function ContactPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[#1F4E4C] mb-5">
-              告诉您的需要，
+              告诉我们您的需要，
               <br />
               半小时内为您匹配合适方案。
             </h1>
