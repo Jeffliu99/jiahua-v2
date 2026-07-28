@@ -50,93 +50,79 @@ export default function HomePage() {
   ];
 
   const heroFeatures = [
-    {
-      icon: "♨",
-      title: "阶段化营养规划",
-      text: "按恢复阶段搭配",
-    },
-    {
-      icon: "⌂",
-      title: "每日新鲜制作",
-      text: "精选食材现做现送",
-    },
-    {
-      icon: "♡",
-      title: "专业恢复支持",
-      text: "贴心营养建议",
-    },
-    {
-      icon: "▣",
-      title: "GTA覆盖配送",
-      text: "准时送达更省心",
-    },
+    { icon: "♨", title: "阶段化营养", text: "按阶段搭配" },
+    { icon: "⌂", title: "每日新鲜", text: "现做现送" },
+    { icon: "♡", title: "恢复支持", text: "贴心建议" },
+    { icon: "▣", title: "GTA配送", text: "准时省心" },
   ];
 
   return (
-    <main className="bg-[#FAF8F5]">
+    <main className="bg-[#FAF8F5] font-sans">
       {/* Hero with background image */}
-      <section className="relative overflow-hidden bg-[#FAF8F5] min-h-[560px] md:min-h-[620px]">
+      <section className="relative overflow-hidden bg-[#FAF8F5] min-h-[420px] md:min-h-[470px] xl:min-h-[560px]">
         <div
           className="absolute inset-0 bg-cover bg-center md:bg-right"
           style={{ backgroundImage: "url('/images/home-hero-bg.png')" }}
           aria-hidden="true"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/88 to-[#FAF8F5]/18" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/10 via-transparent to-[#FAF8F5]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/84 to-[#FAF8F5]/14" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/8 via-transparent to-[#FAF8F5]/45" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-10 md:pt-14 pb-6 md:pb-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/75 border border-[#F0E8DD] text-[#B8915D] text-sm font-medium mb-6 shadow-sm backdrop-blur">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-4 md:pt-5 xl:pt-9 pb-3 md:pb-4">
+          <div className="max-w-[350px]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/75 border border-[#F0E8DD] text-[#B8915D] text-sm font-medium mb-3 shadow-sm backdrop-blur font-sans">
               <span aria-hidden="true">★</span>
               <span>GTA 专业产后营养支持</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#1F4E4C] mb-6">
+            <h1 className="font-sans text-[36px] md:text-[42px] xl:text-6xl font-medium tracking-[-0.01em] leading-[1.16] text-[#1F4E4C] mb-3 md:mb-4">
               为新生命而喜悦，
               <br />
               为妈妈的恢复而用心。
             </h1>
 
-            <p className="text-base md:text-lg leading-8 text-gray-700 max-w-[350px] mb-8">
-              融合传统产后调理智慧与现代营养科学，
-              为 GTA 华人家庭提供阶段化月子餐、营养支持与贴心配送。
+            <p className="font-sans text-[15px] md:text-base leading-6 md:leading-7 text-gray-600 mb-3 md:mb-4 tracking-normal">
+              融合传统产后调理智慧与现代营养科学，为 GTA 华人家庭提供月子餐、营养支持与贴心配送。
             </p>
 
-            <div className="flex flex-col gap-3 max-w-[350px]">
+            <div className="flex flex-col min-[420px]:flex-row gap-2.5 min-[420px]:gap-3">
               <Link
                 href="/contact"
-                className="w-full bg-[#1F4E4C] text-white px-8 py-4 rounded-full font-bold text-center hover:bg-[#173D3B] transition"
+                className="w-full min-[420px]:flex-1 bg-[#1F4E4C] text-white px-3 py-2 rounded-full font-medium text-[13px] md:text-[14px] tracking-[-0.005em] text-center hover:bg-[#173D3B] transition whitespace-nowrap font-sans"
               >
-                预约营养顾问 →
+                预约咨询 →
               </Link>
 
               <Link
                 href="/services"
-                className="w-full bg-white/70 border border-[#D6B37F] text-[#1F4E4C] px-8 py-4 rounded-full font-bold text-center hover:bg-white transition backdrop-blur"
+                className="w-full min-[420px]:flex-1 bg-white/70 border border-[#D6B37F] text-[#1F4E4C] px-3 py-2 rounded-full font-medium text-[13px] md:text-[14px] tracking-[-0.005em] text-center hover:bg-white transition backdrop-blur whitespace-nowrap font-sans"
               >
-                查看服务方案 →
+                服务方案 →
               </Link>
             </div>
           </div>
 
-                                        {/* Hero feature card - aligned with buttons, shorter content and equal rows */}
-          <div className="mt-6 md:mt-7 max-w-[350px] bg-white/86 backdrop-blur rounded-2xl border border-[#F0E8DD] shadow-md px-4 md:px-5 py-3 md:py-4">
-            <div className="grid grid-cols-2 gap-x-5 gap-y-3 auto-rows-fr">
+          {/* Hero feature card */}
+          <div className="mt-3 max-w-[350px] bg-white/86 backdrop-blur rounded-2xl border border-[#F0E8DD] shadow-md px-3.5 min-[420px]:px-4 py-2 md:hidden 2xl:block">
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-x-4 gap-y-2 auto-rows-fr">
               {heroFeatures.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex items-center gap-3 min-h-[58px]"
+                  className="flex items-center gap-2 min-h-[34px] min-[420px]:min-h-[36px] font-sans"
                 >
-                  <div className="w-7 shrink-0 text-center text-[#B8915D] text-lg leading-6" aria-hidden="true">
+                  <div
+                    className="w-5 shrink-0 text-center text-[#B8915D] text-sm leading-5 font-normal"
+                    aria-hidden="true"
+                  >
                     {feature.icon}
                   </div>
 
                   <div className="min-w-0 text-left">
-                    <h3 className="text-sm md:text-base font-bold text-[#1F4E4C] leading-5 whitespace-nowrap">
+                    <h3 className="text-[12px] md:text-[13px] font-medium tracking-[-0.005em] text-[#1F4E4C] leading-4 whitespace-nowrap">
                       {feature.title}
                     </h3>
-                    <p className="mt-0.5 text-xs md:text-sm text-gray-600 leading-5 whitespace-nowrap">
+                    <p className="mt-0.5 text-[10px] md:text-[11px] font-normal text-gray-500 leading-4 whitespace-nowrap">
                       {feature.text}
                     </p>
                   </div>
@@ -166,7 +152,9 @@ export default function HomePage() {
                 key={item.title}
                 className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD] hover:shadow-lg transition"
               >
-                <h3 className="text-2xl font-bold text-[#1F4E4C] mb-4">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-[#1F4E4C] mb-4">
+                  {item.title}
+                </h3>
                 <p className="text-gray-600 leading-8">{item.text}</p>
               </div>
             ))}
@@ -199,9 +187,14 @@ export default function HomePage() {
                 key={service.title}
                 className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD]"
               >
-                <h3 className="text-2xl font-bold text-[#1F4E4C] mb-4">{service.title}</h3>
+                <h3 className="text-2xl font-bold text-[#1F4E4C] mb-4">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600 leading-8 mb-6">{service.text}</p>
-                <Link href="/services" className="text-[#1F4E4C] font-semibold hover:text-[#D6B37F] transition">
+                <Link
+                  href="/services"
+                  className="text-[#1F4E4C] font-semibold hover:text-[#D6B37F] transition"
+                >
                   了解更多 →
                 </Link>
               </div>
@@ -211,34 +204,46 @@ export default function HomePage() {
       </section>
 
       {/* Nutrition */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-10 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="text-[#D6B37F] font-medium mb-3">营养理念</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-6">
+            <div className="max-w-3xl">
+              <div className="text-[#D6B37F] font-medium mb-2">营养理念</div>
+
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] leading-tight mb-3">
                 传统调理智慧，结合现代营养科学
               </h2>
-              <p className="text-lg leading-8 text-gray-600 mb-8">
-                产后恢复是一个循序渐进的过程。加华月子餐根据恢复节奏设计不同阶段的营养重点，让饮食更贴合身体真实需要。
+
+              <p className="text-base md:text-lg leading-7 text-gray-600">
+                根据产后恢复节奏设计营养重点，让每一餐更贴合身体真实需要。
               </p>
-              <Link
-                href="/nutrition"
-                className="inline-flex w-full sm:w-auto justify-center bg-[#1F4E4C] text-white px-8 py-4 rounded-full font-bold hover:bg-[#173D3B] transition"
-              >
-                了解营养理念
-              </Link>
             </div>
 
-            <div className="grid gap-5">
-              <div className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD]">
-                <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">产后初期调理</h3>
-                <p className="text-gray-600 leading-7">温和、清淡、易消化，帮助身体逐步从生产后的消耗中恢复。</p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-3xl p-6 md:p-8 border border-[#F0E8DD]">
-                <h3 className="text-xl font-bold text-[#1F4E4C] mb-3">营养恢复支持</h3>
-                <p className="text-gray-600 leading-7">从基础营养补充到体力恢复，帮助妈妈更稳定地进入新的生活节奏。</p>
-              </div>
+            <Link
+              href="/nutrition"
+              className="inline-flex w-full sm:w-auto justify-center rounded-full bg-[#1F4E4C] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#173D3B]"
+            >
+              了解营养理念
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] p-5 md:p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-[#1F4E4C] mb-2">
+                产后初期调理
+              </h3>
+              <p className="text-gray-600 leading-7">
+                温和、清淡、易消化，帮助身体逐步从生产后的消耗中恢复。
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#F0E8DD] bg-[#FAF8F5] p-5 md:p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-[#1F4E4C] mb-2">
+                营养恢复支持
+              </h3>
+              <p className="text-gray-600 leading-7">
+                从基础营养补充到体力恢复，帮助妈妈更稳定地进入新的生活节奏。
+              </p>
             </div>
           </div>
         </div>
@@ -259,7 +264,10 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {storyCards.map((story) => (
-              <div key={story.location} className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD]">
+              <div
+                key={story.location}
+                className="bg-white rounded-3xl p-6 md:p-8 border border-[#F0E8DD]"
+              >
                 <div className="text-[#D6B37F] text-lg mb-4">★★★★★</div>
                 <p className="text-gray-600 leading-8 mb-6">{story.text}</p>
                 <div className="text-[#1F4E4C] font-semibold">— {story.location}</div>
@@ -281,7 +289,9 @@ export default function HomePage() {
       {/* CTA */}
       <section className="py-12 md:py-14 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
-          <div className="text-[#F4D7A7] text-lg font-semibold mb-4">开始预约咨询</div>
+          <div className="text-[#F4D7A7] text-lg font-semibold mb-4">
+            开始预约咨询
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
             让专业营养，
             <br />
@@ -293,13 +303,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="w-full sm:w-auto bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-bold hover:opacity-90 transition text-center"
+              className="w-full sm:w-auto bg-[#F4D7A7] text-[#173D3B] px-8 py-4 rounded-full font-semibold hover:opacity-90 transition text-center"
             >
               预约营养顾问
             </Link>
             <Link
               href="/services"
-              className="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-center"
+              className="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition text-center"
             >
               查看服务方案
             </Link>
