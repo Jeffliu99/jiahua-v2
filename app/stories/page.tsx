@@ -13,13 +13,13 @@ export default function StoriesPage() {
   const stories = [
     {
       location: "Markham 妈妈",
-      image: "/images/home-meal-set.png",
+      image: "/images/markham-mammy.png",
       alt: "完整月子餐套餐",
       text: "每天按时送达的餐食，让家里少了很多备餐压力，也让我能把更多时间留给宝宝和恢复。",
     },
     {
       location: "Richmond Hill 家庭",
-      image: "/images/markham-mammy.png",
+      image: "/images/rich-mommy.png",
       alt: "月子餐打包配送场景",
       text: "咨询、餐食和配送安排都很清楚，对于第一次经历产后恢复的家庭来说非常安心。",
     },
