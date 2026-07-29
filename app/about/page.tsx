@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "../components/PageHero";
 
@@ -44,6 +45,7 @@ export default function AboutPage() {
         description="加华月子餐专注于 GTA 华人家庭的产后营养支持，将传统调理智慧与现代营养理念结合。"
       />
 
+      {/* Brand Story */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-start">
@@ -77,7 +79,65 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Real Work Photos */}
       <section className="py-12 md:py-16 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="text-[#D6B37F] font-medium mb-3">真实制作与交付</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] leading-tight mb-5">
+              从食材准备到打包配送，每一步都认真对待。
+            </h2>
+            <p className="text-lg leading-8 text-gray-600">
+              我们希望通过清楚、整洁、稳定的流程，让每一份月子餐都能更安心地送到家庭手中。
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-7">
+            <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-white shadow-sm">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/about-kitchen.png"
+                  alt="月子餐厨房食材准备场景"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 md:p-7">
+                <h3 className="text-2xl font-bold text-[#1F4E4C] mb-3">
+                  新鲜食材，认真准备
+                </h3>
+                <p className="text-gray-600 leading-8">
+                  从食材处理到餐食搭配，我们关注每一天的制作细节，让餐食更稳定、更安心。
+                </p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-white shadow-sm">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/about-packing.png"
+                  alt="月子餐打包配送准备场景"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 md:p-7">
+                <h3 className="text-2xl font-bold text-[#1F4E4C] mb-3">
+                  妥善打包，安心送达
+                </h3>
+                <p className="text-gray-600 leading-8">
+                  餐盒整理、保温配送和交付安排都尽量清楚，让家庭在产后恢复期更省心。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Work */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
@@ -90,7 +150,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#F0E8DD] bg-white p-6 md:p-8">
+            <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-6 md:p-8">
               <ul className="space-y-4">
                 {milestones.map((item) => (
                   <li key={item} className="flex gap-3 text-gray-600 leading-7">
@@ -106,6 +166,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-12 md:py-14 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
           <div className="text-[#F4D7A7] font-semibold mb-4">准备了解适合您的方案？</div>

@@ -161,6 +161,79 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+{/* Real Photos */}
+<section className="py-12 md:py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-6 md:px-8">
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-9">
+      <div className="max-w-3xl">
+        <div className="text-[#D6B37F] font-medium mb-3">真实餐食与服务场景</div>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] leading-tight mb-4">
+          每一餐，都从新鲜制作到安心送达。
+        </h2>
+        <p className="text-lg leading-8 text-gray-600">
+          从完整月子餐、温润汤品到打包配送，我们希望让妈妈和家人在产后恢复期更安心、更省心。
+        </p>
+      </div>
+
+      <Link
+        href="/services"
+        className="inline-flex w-full md:w-auto justify-center rounded-full border border-[#D6B37F] px-6 py-3 text-sm font-semibold text-[#1F4E4C] transition hover:bg-[#D6B37F]/10"
+      >
+        查看服务方案
+      </Link>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+      <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] shadow-sm">
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/images/home-meal-set.png"
+            alt="完整月子餐套餐"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+        </div>
+        <div className="p-5 md:p-6">
+          <h3 className="text-xl font-bold text-[#1F4E4C] mb-2">完整月子餐套餐</h3>
+          <p className="text-gray-600 leading-7">
+            主食、汤品、蛋白质、蔬菜与点心搭配，照顾产后不同阶段的日常营养需求。
+          </p>
+        </div>
+      </div>
+
+      <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] shadow-sm">
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/images/home-soup.png"
+            alt="温润滋补汤品"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+        </div>
+        <div className="p-5 md:p-6">
+          <h3 className="text-xl font-bold text-[#1F4E4C] mb-2">温润汤品支持</h3>
+          <p className="text-gray-600 leading-7">
+            以温和、舒适、易入口为重点，为产后恢复期提供稳定的餐食支持。
+          </p>
+        </div>
+      </div>
+
+      <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] shadow-sm">
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/images/home-delivery.png"
+            alt="月子餐打包配送"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+        </div>
+        <div className="p-5 md:p-6">
+          <h3 className="text-xl font-bold text-[#1F4E4C] mb-2">打包配送到家</h3>
+          <p className="text-gray-600 leading-7">
+            每日新鲜制作并妥善打包，帮助家庭减少备餐压力，让照护更从容。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Services Preview */}
       <section className="py-12 md:py-16 bg-[#FAF8F5]">
