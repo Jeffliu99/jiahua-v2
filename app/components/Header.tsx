@@ -51,7 +51,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E8DCC9] bg-[#FAF8F5]/96 shadow-sm backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#E8DCC9]/80 bg-[#FAF8F5]/96 shadow-[0_6px_24px_rgba(31,78,76,0.06)] backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-6 py-3 md:px-8">
         {/* Brand */}
         <Link
@@ -68,14 +68,14 @@ export default function Header() {
             className="h-8 w-auto md:h-9"
           />
 
-          <div className="w-[98px] leading-none md:w-[100px]">
+          <div className="w-[100px] leading-none md:w-[114px]">
               <div className="whitespace-nowrap text-[17px] font-bold leading-none tracking-[-0.02em] text-[#1F4E4C] md:text-[18px]">
                 加华月子餐
               </div>
 
-              <div className="mt-0 h-[9px] overflow-visible md:h-[10px]">
+              <div className="mt-[1px] h-[9px] overflow-visible md:h-[10px]">
                 <span
-                  className="inline-block origin-left whitespace-nowrap text-[9px] font-normal leading-none tracking-[0.01em] text-[#B8915D] md:text-[10px]"
+                  className="inline-block origin-left whitespace-nowrap text-[8.8px] font-normal leading-none tracking-[0.01em] text-[#B8915D] md:text-[9.4px]"
                   style={{ transform: "scaleX(0.72)" }}
                 >
                   Jiahua Postpartum Meals
@@ -97,7 +97,7 @@ export default function Header() {
                 className="group relative block whitespace-nowrap py-2 text-[15px] font-medium text-[#1F4E4C] transition-colors duration-300 ease-out hover:text-[#C9A18A] xl:text-base"
               >                
                 <span
-                  className={`inline-block border-b-2 pb-[2px] transition-all duration-300 ease-out ${
+                  className={`inline-block border-b-2 pb-[1px] transition-all duration-300 ease-out ${
                     active
                       ? "border-[#C9A18A] text-[#C9A18A]"
                       : "border-transparent group-hover:border-[#C9A18A] group-hover:text-[#C9A18A]"
