@@ -17,10 +17,7 @@ const navItems = [
 ];
 
 function isActivePath(pathname: string, href: string) {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
+  if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
@@ -37,9 +34,7 @@ export default function Header() {
     }
 
     function handleEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setMenuOpen(false);
-      }
+      if (event.key === "Escape") setMenuOpen(false);
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -57,8 +52,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E8DCC9] bg-[#FAF8F5]/96 shadow-sm backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8 md:py-4">
-        {/* Logo + Brand */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-6 py-4 md:px-8">
+        {/* Brand */}
         <Link
           href="/"
           aria-label="返回加华月子餐首页"
@@ -67,27 +62,24 @@ export default function Header() {
           <Image
             src="/images/logo.png"
             alt="加华月子餐 Logo"
-            width={72}
-            height={72}
+            width={56}
+            height={56}
             priority
-            className="h-12 w-auto sm:h-14 md:h-16"
+            className="h-11 w-auto md:h-12"
           />
 
-          <div className="leading-none">
-            <div className="whitespace-nowrap text-[30px] font-bold tracking-[0.38em] text-[#1F4E4C] sm:text-[36px] md:text-[42px]">
+          <div className="w-[116px] leading-tight md:w-[136px]">
+            <div className="whitespace-nowrap text-xl font-bold tracking-[-0.02em] text-[#1F4E4C] md:text-2xl">
               加华月子餐
             </div>
-            <div className="mt-3 whitespace-nowrap text-[20px] font-semibold tracking-[0.08em] text-[#B8915D] sm:text-[24px] md:text-[27px]">
+            <div className="mt-1 w-full whitespace-nowrap text-[9.5px] font-normal leading-none tracking-[0.01em] text-[#B8915D] md:text-[11px]">
               Jiahua Postpartum Meals
             </div>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav
-          aria-label="主导航"
-          className="hidden items-center gap-4 lg:flex xl:gap-6"
-        >
+        <nav aria-label="主导航" className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navItems.map((item) => {
             const active = isActivePath(pathname, item.href);
 
@@ -98,21 +90,16 @@ export default function Header() {
                 aria-current={active ? "page" : undefined}
                 className="group relative block whitespace-nowrap py-2 text-[15px] font-medium text-[#1F4E4C] transition-colors duration-300 ease-out hover:text-[#C9A18A] xl:text-base"
               >
-                <span
-                  className={`transition-colors duration-300 ease-out ${
-                    active ? "text-[#C9A18A]" : "group-hover:text-[#C9A18A]"
-                  }`}
-                >
+                <span className={active ? "text-[#C9A18A]" : "group-hover:text-[#C9A18A]"}>
                   {item.label}
                 </span>
-
                 <span
+                  aria-hidden="true"
                   className={`absolute left-1/2 top-full mt-1.5 h-[2.5px] w-[28px] -translate-x-1/2 rounded-full bg-[#C9A18A] transition-all duration-300 ease-out ${
                     active
                       ? "scale-x-100 opacity-100"
                       : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-70"
                   }`}
-                  aria-hidden="true"
                 />
               </Link>
             );
@@ -128,7 +115,6 @@ export default function Header() {
             预约咨询
           </Link>
 
-          {/* Mobile / Compact Menu */}
           <div className="relative lg:hidden">
             <button
               type="button"
