@@ -15,6 +15,7 @@ export default function Header() {
     { href: "/services", label: "服务方案" },
     { href: "/nutrition", label: "营养理念" },
     { href: "/stories", label: "妈妈故事" },
+    {  href: "/blog",   label: "博客" },
     { href: "/about", label: "关于加华" },
   ];
 
