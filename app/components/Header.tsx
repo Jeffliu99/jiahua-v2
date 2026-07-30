@@ -52,30 +52,36 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E8DCC9] bg-[#FAF8F5]/96 shadow-sm backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-6 py-4 md:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-6 py-3 md:px-8">
         {/* Brand */}
         <Link
           href="/"
           aria-label="返回加华月子餐首页"
-          className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#C9A18A] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
+          className="flex shrink-0 items-center gap-1 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#C9A18A] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
         >
           <Image
             src="/images/logo.png"
             alt="加华月子餐 Logo"
-            width={56}
-            height={56}
+            width={46}
+            height={46}
             priority
-            className="h-11 w-auto md:h-12"
+            className="h-8 w-auto md:h-9"
           />
 
-          <div className="w-[116px] leading-tight md:w-[136px]">
-            <div className="whitespace-nowrap text-xl font-bold tracking-[-0.02em] text-[#1F4E4C] md:text-2xl">
-              加华月子餐
+          <div className="w-[98px] leading-none md:w-[100px]">
+              <div className="whitespace-nowrap text-[17px] font-bold leading-none tracking-[-0.02em] text-[#1F4E4C] md:text-[18px]">
+                加华月子餐
+              </div>
+
+              <div className="mt-0 h-[9px] overflow-visible md:h-[10px]">
+                <span
+                  className="inline-block origin-left whitespace-nowrap text-[9px] font-normal leading-none tracking-[0.01em] text-[#B8915D] md:text-[10px]"
+                  style={{ transform: "scaleX(0.72)" }}
+                >
+                  Jiahua Postpartum Meals
+                </span>
+              </div>
             </div>
-            <div className="mt-1 w-full whitespace-nowrap text-[9.5px] font-normal leading-none tracking-[0.01em] text-[#B8915D] md:text-[11px]">
-              Jiahua Postpartum Meals
-            </div>
-          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -89,18 +95,16 @@ export default function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className="group relative block whitespace-nowrap py-2 text-[15px] font-medium text-[#1F4E4C] transition-colors duration-300 ease-out hover:text-[#C9A18A] xl:text-base"
-              >
-                <span className={active ? "text-[#C9A18A]" : "group-hover:text-[#C9A18A]"}>
+              >                
+                <span
+                  className={`inline-block border-b-2 pb-[2px] transition-all duration-300 ease-out ${
+                    active
+                      ? "border-[#C9A18A] text-[#C9A18A]"
+                      : "border-transparent group-hover:border-[#C9A18A] group-hover:text-[#C9A18A]"
+                  }`}
+                >
                   {item.label}
                 </span>
-                <span
-                  aria-hidden="true"
-                  className={`absolute left-1/2 top-full mt-1.5 h-[2.5px] w-[28px] -translate-x-1/2 rounded-full bg-[#C9A18A] transition-all duration-300 ease-out ${
-                    active
-                      ? "scale-x-100 opacity-100"
-                      : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-70"
-                  }`}
-                />
               </Link>
             );
           })}
