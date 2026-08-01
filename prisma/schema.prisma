@@ -6,6 +6,7 @@ datasource db {
   provider = "mysql"
 }
 
+
 model BlogCategory {
   id        Int        @id @default(autoincrement())
   name      String     @db.VarChar(100)
