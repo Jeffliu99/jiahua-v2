@@ -6,7 +6,7 @@ const adapter = new PrismaMariaDb({
   port: Number(process.env.DB_PORT || 3306),
   user: process.env.DB_USER || 'unz2g8jcsy2ep',
   password: process.env.DB_PASSWORD || 'Jiahua2026',
-  database: process.env.DB_NAME || 'jiahdbxqhqgipw5hyb',
+  database: process.env.DB_NAME || 'dbxqhqgipw5hyb',
 })
 
 const globalForPrisma = globalThis as unknown as {
