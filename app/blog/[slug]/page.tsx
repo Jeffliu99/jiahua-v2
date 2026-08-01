@@ -177,7 +177,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedPosts.map((relatedPost) => (
+              {relatedPosts.map((relatedPost: any) => (
                 <article
                   key={relatedPost.slug}
                   className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-6 md:p-7 transition hover:shadow-md"
