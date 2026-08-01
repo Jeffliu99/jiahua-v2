@@ -172,8 +172,14 @@ const draftCount = posts.filter(
                 </thead>
 
                 <tbody>
-                  {posts.map((post) => (
-                    <tr
+                  {posts.map(
+                          (post: {
+                            id: number;
+                            title: string;
+                            status: string;
+                            slug: string;
+                          }) => (
+                  <tr
                       key={post.id}
                       className="border-t border-[#F0E8DD] align-top transition hover:bg-[#FAF8F5]"
                     >
