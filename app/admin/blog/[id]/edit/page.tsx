@@ -336,7 +336,7 @@ export default async function EditBlogPostPage({
                   className="w-full rounded-2xl border border-[#E8DCC9] bg-white px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F]"
                 >
                   <option value="">请选择分类</option>
-                  {categories.map((category) => (
+                 {categories.map((category: { id: number; name: string }) => (
                     <option key={category.id} value={category.id}>
                       {category.name}
                     </option>
