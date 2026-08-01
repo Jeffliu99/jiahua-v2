@@ -63,8 +63,13 @@ export default async function AdminBlogPage({
     ],
   });
 
-  const publishedCount = posts.filter((post) => post.status === "published").length;
-  const draftCount = posts.filter((post) => post.status === "draft").length;
+  const publishedCount = posts.filter(
+  (post: { status: string }) => post.status === "published"
+).length;
+
+const draftCount = posts.filter(
+  (post: { status: string }) => post.status === "draft"
+).length;
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] px-6 py-10 font-sans md:px-8">
