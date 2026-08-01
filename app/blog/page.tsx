@@ -39,10 +39,11 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   });
 
   const activeCategory =
-    activeCategorySlug === "all"
-      ? null
-      : categoriesFromDb.find((category) => category.slug === activeCategorySlug) || null;
-
+  activeCategorySlug === "all"
+    ? null
+    : categoriesFromDb.find(
+        (category: any) => category.slug === activeCategorySlug
+      ) || null;
   const posts = await prisma.blogPost.findMany({
     where: {
       status: "published",
