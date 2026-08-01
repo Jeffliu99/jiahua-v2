@@ -100,7 +100,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               全部文章
             </Link>
 
-            {categoriesFromDb.map((category) => (
+            {categoriesFromDb.map((category: any) => (
               <Link
                 key={category.id}
                 href={`/blog?category=${category.slug}`}
