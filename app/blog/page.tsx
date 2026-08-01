@@ -68,9 +68,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const featuredPost = posts[0] ?? null;
   const normalPosts = posts.slice(1);
   const featuredCoverImage =
-    featuredPost?.coverImage ||
-    posts.find((post) => post.coverImage)?.coverImage ||
-    "/images/blog/postpartum-meal-week-3.png";
+  featuredPost?.coverImage ||
+  posts.find((post: any) => post.coverImage)?.coverImage ||
+  "/images/blog/postpartum-meal-week-3.png";
 
   return (
     <main className="bg-[#FAF8F5] font-sans">
