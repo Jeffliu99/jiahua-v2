@@ -2,12 +2,14 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 
 const adapter = new PrismaMariaDb({
-  host: process.env.DB_HOST || "35.208.250.55",
+  host: process.env.DB_HOST!,
   port: Number(process.env.DB_PORT || 3306),
-  user: process.env.DB_USER || "unz2g8jcsy2ep",
-  password: process.env.DB_PASSWORD || "Jiahua2026",
-  database: process.env.DB_NAME || "dbxqhqgipw5hyb",
+  user: process.env.DB_USER!,
+  password: process.env.DB_PASSWORD!,
+  database: process.env.DB_NAME!,
   connectionLimit: 1,
+  acquireTimeout: 30000,
+  connectTimeout: 30000,
 });
 
 const globalForPrisma = globalThis as unknown as {
