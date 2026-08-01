@@ -2,11 +2,11 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaMariaDb } from '@prisma/adapter-mariadb'
 
 const adapter = new PrismaMariaDb({
-  host: process.env.DB_HOST || '127.0.0.1',
+  host: process.env.DB_HOST || '35.208.250.55',
   port: Number(process.env.DB_PORT || 3306),
-  user: process.env.DB_USER || 'jiahua_user',
-  password: process.env.DB_PASSWORD || 'jiahua_password',
-  database: process.env.DB_NAME || 'jiahua_db',
+  user: process.env.DB_USER || 'unz2g8jcsy2ep',
+  password: process.env.DB_PASSWORD || 'Jiahua2026',
+  database: process.env.DB_NAME || 'jiahdbxqhqgipw5hyb',
 })
 
 const globalForPrisma = globalThis as unknown as {
