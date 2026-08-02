@@ -52,7 +52,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E8DCC9]/80 bg-[#FAF8F5]/96 shadow-[0_6px_20px_rgba(31,78,76,0.06)] backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-6 py-3 md:px-8">
+      <div className="mx-auto flex h-[110px] max-w-7xl items-center justify-between px-6 md:px-8">
         {/* Brand */}
         <Link
           href="/"
@@ -60,28 +60,13 @@ export default function Header() {
           className="flex shrink-0 items-center gap-1 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#C9A18A] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
         >
           <Image
-            src="/images/logo.png"
-            alt="加华月子餐 Logo"
-            width={46}
-            height={46}
-            priority
-            className="h-8 w-auto md:h-9"
+              src="/images/logo-full.png"
+              alt="加华月子餐 Jiahua Postpartum Meals"
+              width={420}
+              height={120}
+              priority
+              className="h-12 w-auto sm:h-14 md:h-16"
           />
-
-        <div className="w-[100px] leading-none md:w-[114px]">
-            <div className="whitespace-nowrap text-[18px] font-bold leading-none tracking-[-0.02em] text-[#1F4E4C] md:text-[18px]">
-              加华月子餐
-            </div>
-
-            <div className="mt-0 h-[10px] overflow-visible md:h-[11px]">
-              <span
-                className="inline-block origin-left whitespace-nowrap text-[9.25px] font-normal leading-none tracking-[0.01em] text-[#B8915D] md:text-[10.25px]"
-                style={{ transform: "scaleX(0.72)" }}
-              >
-                Jiahua Postpartum Meals
-              </span>
-            </div>
-          </div>
         </Link>
 
         {/* Desktop Navigation */}
