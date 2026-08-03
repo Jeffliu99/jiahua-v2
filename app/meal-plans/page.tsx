@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import CustomerFeedbackSection from "@/components/CustomerFeedbackSection";
 
 export const metadata = {
   title: "月子餐菜单｜加华月子餐",
@@ -463,7 +464,7 @@ export default function MealPlansPage() {
           </div>
         </div>
       </section>
-      <TestimonialsSection />
+      <CustomerFeedbackSection />
       {/* Weekly Menu */}
       <section id="weekly-menu" className="py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
