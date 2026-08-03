@@ -9,6 +9,7 @@ const navItems = [
   { href: "/", label: "首页" },
   { href: "/about", label: "关于我们" },
   { href: "/services", label: "服务方案" },
+  { href: "/meal-plans", label: "月子餐菜单" },
   { href: "/nutrition", label: "营养理念" },
   { href: "/stories", label: "妈妈故事" },
   { href: "/blog", label: "博客" },
