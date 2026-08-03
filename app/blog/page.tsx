@@ -91,7 +91,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     alt={featuredPost.title}
                     fill
                     priority
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    className="object-contain transition duration-700 group-hover:scale-105"
                     sizes="100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
@@ -162,7 +162,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   className="group overflow-hidden rounded-[1.75rem] border border-[#F0E8DD] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(31,78,76,0.1)]"
                 >
                   <Link href={`/blog/${post.slug}`} className="block">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#EFE7DA]">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
                       <Image
                         src={post.coverImage}
                         alt={post.title}
