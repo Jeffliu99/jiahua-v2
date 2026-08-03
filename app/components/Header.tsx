@@ -52,7 +52,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E8DCC9]/80 bg-[#FAF8F5]/96 shadow-[0_6px_20px_rgba(31,78,76,0.06)] backdrop-blur-md">
-      <div className="mx-auto flex h-[110px] max-w-7xl items-center justify-between px-6 md:px-8">
+      <div className="mx-auto flex min-h-[110px] max-w-7xl items-center justify-between gap-8 px-6 md:px-8">
         {/* Brand */}
         <Link
           href="/"
@@ -60,12 +60,12 @@ export default function Header() {
           className="flex shrink-0 items-center gap-1 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#C9A18A] focus:ring-offset-2 focus:ring-offset-[#FAF8F5]"
         >
           <Image
-              src="/images/logo-full.png"
+              src="/images/logo-full-header.png"
               alt="加华月子餐 Jiahua Postpartum Meals"
-              width={420}
-              height={120}
+              width={800}
+              height={200}
               priority
-              className="h-12 w-auto sm:h-14 md:h-16"
+              className="h-20 w-auto md:h-24 lg:h-28"
           />
         </Link>
 
