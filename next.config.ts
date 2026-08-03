@@ -4,10 +4,75 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
   },
+
   experimental: {
     serverActions: {
       bodySizeLimit: "8mb",
     },
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/shop",
+        destination: "/meal-plans",
+        permanent: true,
+      },
+
+      {
+        source: "/menu-and-gallery",
+        destination: "/meal-plans",
+        permanent: true,
+      },
+
+      {
+        source: "/product-category/trial-meal",
+        destination: "/meal-plans",
+        permanent: true,
+      },
+
+      {
+        source: "/product-category/postpartum-meal",
+        destination: "/meal-plans",
+        permanent: true,
+      },
+
+      {
+        source: "/product-category/miscarriage-recovery-meals",
+        destination: "/contact",
+        permanent: true,
+      },
+
+      {
+        source: "/product-category/pregnancy-lactation-support-meals",
+        destination: "/contact",
+        permanent: true,
+      },
+
+      {
+        source: "/product-category/post-surgery-recovery-meal",
+        destination: "/contact",
+        permanent: true,
+      },
+
+      {
+        source: "/product-category/family-daily-meal",
+        destination: "/contact",
+        permanent: true,
+      },
+
+      {
+        source: "/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+
+      {
+        source: "/user-account",
+        destination: "/contact",
+        permanent: true,
+      },
+    ];
   },
 };
 
