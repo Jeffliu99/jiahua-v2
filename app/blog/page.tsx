@@ -85,7 +85,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <article className="overflow-hidden rounded-[2rem] border border-[#F0E8DD] bg-white shadow-[0_18px_45px_rgba(31,78,76,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(31,78,76,0.13)]">
               <Link href={`/blog/${featuredPost.slug}`} className="group block">
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#EFE7DA]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFE7DA]">
                   <Image
                     src={featuredPost.coverImage}
                     alt={featuredPost.title}

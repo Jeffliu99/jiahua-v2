@@ -117,7 +117,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   alt={post.title}
                   fill
                   priority
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 896px"
                 />
               </div>
