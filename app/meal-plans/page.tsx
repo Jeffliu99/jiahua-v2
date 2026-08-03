@@ -39,8 +39,8 @@ const deliveryMeals = [
 const dailyExtras = [
   {
     title: "养生甜品",
-    description: "芝麻糊、杏仁糊、银耳羹、莲子百合糖水、紫薯甜汤等每日轮换搭配。",
-    image: "/images/meal-plans/traditional-dessert-selection.jpg",
+    description: "芝麻糊、杏仁糊、银耳羹、莲子百合糖水、草莓奶油甜品杯等每日轮换搭配。",
+    image: "/images/meal-plans/strawberry-dessert-cups.jpg",
   },
   {
     title: "手工面点",
@@ -49,8 +49,31 @@ const dailyExtras = [
   },
   {
     title: "现烤糕点",
-    description: "蛋挞、纸杯蛋糕、燕麦蛋糕、红枣芝麻糕点等新鲜烘焙点心。",
-    image: "/images/meal-plans/fresh-baked-cupcakes.jpg",
+    description: "紫菜肉松蛋糕、精品 Cupcake、蛋挞与每日烘焙点心，让月子期间饮食更加丰富。",
+    image: "/images/meal-plans/premium-cupcake-gift-box.jpg",
+  },
+];
+
+const pastryItems = [
+  {
+    src: "/images/meal-plans/seaweed-pork-floss-cake.jpg",
+    title: "紫菜肉松蛋糕",
+    description: "加华特色手工糕点，咸香松软，适合作为三点搭配。",
+  },
+  {
+    src: "/images/meal-plans/premium-cupcake-gift-box.jpg",
+    title: "精品 Cupcake 礼盒",
+    description: "每日现烤糕点，搭配水果与轻甜奶油。",
+  },
+  {
+    src: "/images/meal-plans/strawberry-dessert-cups.jpg",
+    title: "草莓甜品杯",
+    description: "新鲜草莓、奶油与蛋糕层次组合，清爽丰富。",
+  },
+  {
+    src: "/images/meal-plans/assorted-cupcake-boxes.jpg",
+    title: "多款 Cupcake 组合",
+    description: "多种口味轮换，丰富每日点心选择。",
   },
 ];
 
@@ -333,8 +356,44 @@ export default function MealPlansPage() {
         </div>
       </section>
 
-      {/* Real Meals Gallery */}
+      {/* Fresh Baked Daily */}
       <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+              Fresh Baked Daily
+            </div>
+            <h2 className="text-3xl font-bold text-[#1F4E4C] md:text-5xl">
+              每日现烤糕点
+            </h2>
+            <p className="mt-5 leading-8 text-gray-600">
+              除正餐外，加华月子餐每日搭配特色烘焙点心与养生糕点，让妈妈在恢复期间享受更多元化的饮食体验。
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {pastryItems.map((item) => (
+              <article key={item.src} className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-sm">
+                <div className="relative aspect-[4/5] w-full bg-[#FAF8F5]">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-[#1F4E4C]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600">{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Real Meals Gallery */}
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
