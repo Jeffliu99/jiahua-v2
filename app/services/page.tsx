@@ -22,7 +22,7 @@ export default function ServicesPage() {
     {
       title: "剖腹产恢复方案",
       tag: "术后恢复关注",
-      image: "/images/meal-plans/healthy-grain-meal.jpg",
+      image: "/images/services/service-c-section.png",
       alt: "剖腹产恢复方案清淡月子餐",
       text: "针对剖腹产后的饮食舒适度与恢复节奏，提供更温和的餐食搭配。",
       points: ["重视清淡与易消化", "照顾术后恢复节奏", "减少家庭备餐压力"],
@@ -38,7 +38,7 @@ export default function ServicesPage() {
     {
       title: "高端定制方案",
       tag: "个性化安排",
-      image: "/images/meal-plans/salmon-set-meal.jpg",
+      image: "/images/services/service-premium.png",
       alt: "高端定制月子餐方案摆盘",
       text: "适合有特别口味、配送或家庭安排需求的客户，咨询后匹配更合适方案。",
       points: ["根据需求沟通安排", "适合个性化偏好", "可配合家庭节奏"],
