@@ -437,7 +437,7 @@ export default function MealPlansPage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-[#E8DCC9] bg-[#FAF8F5] shadow-sm">
               <Image
-                src="/images/meal-plans/production-scale-overview.jpg"
+                src="/images/meal-plans/production-scale-overview.png"
                 alt="加华月子餐真实出餐与餐食组合"
                 fill
                 className="object-cover"
