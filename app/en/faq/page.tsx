@@ -3,7 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FAQ | Jiahua Confinement Meal",
   description: "Frequently asked questions about Jiahua Confinement Meal postpartum meal delivery in Toronto and the GTA.",
-  alternates: { canonical: "https://jiahuameal.com/en/faq" },
+  alternates: {
+    canonical: "https://jiahuameal.com/en/faq",
+    languages: {
+      "zh-CA": "https://jiahuameal.com/faq",
+      "en-CA": "https://jiahuameal.com/en/faq",
+    },
+  },
 };
 
 const faqs = [

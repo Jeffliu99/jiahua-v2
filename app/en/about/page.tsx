@@ -5,7 +5,13 @@ export const metadata: Metadata = {
   title: "About Jiahua Confinement Meal | Chinese-Style Postpartum Meals in Toronto & GTA",
   description:
     "Learn about Jiahua Confinement Meal and our approach to postpartum nutrition for English-speaking families across Toronto and the GTA.",
-  alternates: { canonical: "https://jiahuameal.com/en/about" },
+  alternates: {
+    canonical: "https://jiahuameal.com/en/about",
+    languages: {
+      "zh-CA": "https://jiahuameal.com/about",
+      "en-CA": "https://jiahuameal.com/en/about",
+    },
+  },
 };
 
 const features = [
@@ -22,9 +28,15 @@ export default function EnglishAboutPage() {
     <main className="bg-[#FAF8F5]">
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#C9A18A]">About Jiahua Confinement Meal</p>
-          <h1 className="max-w-5xl text-4xl font-bold text-[#1F4E4C] md:text-6xl">Supporting Families Through Every Stage of Postpartum Recovery</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-9 text-gray-600">For nearly a decade, Jiahua Confinement Meal has been providing carefully prepared Chinese-style postpartum meals to families across the Greater Toronto Area.</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#C9A18A]">
+            About Jiahua Confinement Meal
+          </p>
+          <h1 className="max-w-5xl text-4xl font-bold text-[#1F4E4C] md:text-6xl">
+            Supporting Families Through Every Stage of Postpartum Recovery
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-9 text-gray-600">
+            For nearly a decade, Jiahua Confinement Meal has been providing carefully prepared Chinese-style postpartum meals to families across the Greater Toronto Area.
+          </p>
         </div>
       </section>
 
@@ -58,10 +70,16 @@ export default function EnglishAboutPage() {
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6 md:px-8">
           <h2 className="text-3xl font-bold text-[#1F4E4C]">Our Commitment</h2>
-          <p className="mt-6 leading-8 text-gray-600">Every family's recovery journey is unique. Our goal is to provide dependable meal support that allows mothers and families to focus on rest, recovery, and spending time with their newborns.</p>
+          <p className="mt-6 leading-8 text-gray-600">
+            Every family&apos;s recovery journey is unique. Our goal is to provide dependable meal support that allows mothers and families to focus on rest, recovery, and spending time with their newborns.
+          </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/en/meal-plans" className="rounded-full bg-[#1F4E4C] px-7 py-3 text-center font-semibold text-white hover:bg-[#173D3B]">View Meal Plans</Link>
-            <Link href="/en/contact" className="rounded-full border border-[#D6B37F] px-7 py-3 text-center font-semibold text-[#1F4E4C] hover:bg-[#D6B37F]/10">Contact Us</Link>
+            <Link href="/en/meal-plans" className="rounded-full bg-[#1F4E4C] px-7 py-3 text-center font-semibold text-white hover:bg-[#173D3B]">
+              View Meal Plans
+            </Link>
+            <Link href="/en/contact" className="rounded-full border border-[#D6B37F] px-7 py-3 text-center font-semibold text-[#1F4E4C] hover:bg-[#D6B37F]/10">
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
