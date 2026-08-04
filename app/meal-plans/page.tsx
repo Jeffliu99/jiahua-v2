@@ -238,7 +238,7 @@ export default function MealPlansPage() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-[#E8DCC9] shadow-sm">
               <Image
-                src="/images/meal-plans/daily-production-line.jpg"
+                src="/images/meal-plans/daily-production-line.png"
                 alt="加华月子餐每日现煮出餐现场"
                 fill
                 className="object-cover"

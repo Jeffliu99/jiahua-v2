@@ -193,7 +193,7 @@ export default function EnglishHomePage() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-[#E8DCC9] bg-[#FAF8F5] shadow-sm">
             <Image
-              src="/images/meal-plans/daily-production-line.jpg"
+              src="/images/meal-plans/daily-production-line.png"
               alt="Fresh daily meal production"
               fill
               className="object-cover"
