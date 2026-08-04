@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import CustomerFeedbackSection from "@/components/CustomerFeedbackSection";
 
 export const metadata = {
@@ -42,38 +41,38 @@ const dailyExtras = [
   {
     title: "养生甜品",
     description: "芝麻糊、杏仁糊、银耳羹、莲子百合糖水、草莓奶油甜品杯等每日轮换搭配。",
-    image: "/images/meal-plans/strawberry-dessert-cups.jpg",
+    image: "/images/desserts/strawberry-dessert-cups.jpg",
   },
   {
     title: "手工面点",
     description: "小笼包、水饺、云吞、烧卖、馄饨、煎饼等手工面点，丰富三点搭配。",
-    image: "/images/meal-plans/handmade-snacks-and-pastries.jpg",
+    image: "/images/bakery/handmade-snacks-and-pastries.jpg",
   },
   {
     title: "现烤糕点",
     description: "紫菜肉松蛋糕、精品 Cupcake、蛋挞与每日烘焙点心，让月子期间饮食更加丰富。",
-    image: "/images/meal-plans/premium-cupcake-gift-box.jpg",
+    image: "/images/bakery/premium-cupcake-gift-box.jpg",
   },
 ];
 
 const pastryItems = [
   {
-    src: "/images/meal-plans/seaweed-pork-floss-cake.jpg",
+    src: "/images/bakery/seaweed-pork-floss-cake.jpg",
     title: "紫菜肉松蛋糕",
     description: "加华特色手工糕点，咸香松软，适合作为三点搭配。",
   },
   {
-    src: "/images/meal-plans/premium-cupcake-gift-box.jpg",
+    src: "/images/bakery/premium-cupcake-gift-box.jpg",
     title: "精品 Cupcake 礼盒",
     description: "每日现烤糕点，搭配水果与轻甜奶油。",
   },
   {
-    src: "/images/meal-plans/strawberry-dessert-cups.jpg",
+    src: "/images/desserts/strawberry-dessert-cups.jpg",
     title: "草莓甜品杯",
     description: "新鲜草莓、奶油与蛋糕层次组合，清爽丰富。",
   },
   {
-    src: "/images/meal-plans/assorted-cupcake-boxes.jpg",
+    src: "/images/bakery/assorted-cupcake-boxes.jpg",
     title: "多款 Cupcake 组合",
     description: "多种口味轮换，丰富每日点心选择。",
   },
@@ -106,7 +105,7 @@ const samplePhotos = [
     alt: "加华月子餐完整餐食示例，包含主菜、饭、汤、蔬菜、水果和甜品",
   },
   {
-    src: "/images/meal-plans/fortifying-dessert-and-soup.jpg",
+    src: "/images/desserts/fortifying-dessert-and-soup.jpg",
     title: "养生甜品与汤水",
     alt: "加华月子餐养生甜品与汤水展示",
   },
@@ -174,8 +173,8 @@ export default function MealPlansPage() {
       <section className="relative isolate overflow-hidden bg-[#153d3b]">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/meal-plans/hero.jpg"
-            alt="加华月子餐真实出餐现场"
+            src="/images/meal-plans/home-meal-set.jpg"
+            alt="加华月子餐完整套餐展示"
             fill
             priority
             className="object-cover opacity-60"
@@ -238,7 +237,7 @@ export default function MealPlansPage() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-[#E8DCC9] shadow-sm">
               <Image
-                src="/images/meal-plans/daily-production-line.png"
+                src="/images/production/daily-production-line-focused.jpg"
                 alt="加华月子餐每日现煮出餐现场"
                 fill
                 className="object-cover"
@@ -437,7 +436,7 @@ export default function MealPlansPage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-[#E8DCC9] bg-[#FAF8F5] shadow-sm">
               <Image
-                src="/images/meal-plans/production-scale-overview.png"
+                src="/images/production/production-scale-overview.jpg"
                 alt="加华月子餐真实出餐与餐食组合"
                 fill
                 className="object-cover"
