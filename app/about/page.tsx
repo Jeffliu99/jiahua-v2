@@ -96,7 +96,7 @@ export default function AboutPage() {
             <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-white shadow-sm">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/about-kitchen.png"
+                  src="/images/about/about-kitchen-preparation.jpg"
                   alt="月子餐厨房食材准备场景"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
@@ -116,7 +116,7 @@ export default function AboutPage() {
             <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-white shadow-sm">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/about-packing.png"
+                  src="/images/delivery/about-meal-packing.jpg"
                   alt="月子餐打包配送准备场景"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"

@@ -13,26 +13,26 @@ export default function StoriesPage() {
   const stories = [
     {
       location: "Markham 妈妈",
-      image: "/images/markham-mammy.png",
-      alt: "完整月子餐套餐",
+      image: "/images/service-area/markham-mammy.jpg",
+      alt: "Markham 月子餐服务",
       text: "每天按时送达的餐食，让家里少了很多备餐压力，也让我能把更多时间留给宝宝和恢复。",
     },
     {
       location: "Richmond Hill 家庭",
-      image: "/images/rich-mommy.png",
-      alt: "月子餐打包配送场景",
+      image: "/images/service-area/richmond-hill-mommy.jpg",
+      alt: "Richmond Hill 月子餐服务",
       text: "咨询、餐食和配送安排都很清楚，对于第一次经历产后恢复的家庭来说非常安心。",
     },
     {
       location: "North York 家庭",
-      image: "/images/home-soup.png",
-      alt: "温润滋补汤品",
+      image: "/images/meal-plans/home-meal-set.jpg",
+      alt: "完整月子餐套餐",
       text: "菜单安排比较贴近我们的饮食习惯，家人照顾起来也轻松很多。",
     },
     {
       location: "Vaughan 妈妈",
-      image: "/images/vaughan-mammy.png",
-      alt: "月子餐打包准备场景",
+      image: "/images/meal-plans/salmon-set-meal.jpg",
+      alt: "高品质月子餐套餐",
       text: "最需要休息的时候，有规律的餐食安排真的帮了很多忙。",
     },
   ];
@@ -140,7 +140,7 @@ export default function StoriesPage() {
               <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] shadow-sm">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src="/images/about-kitchen.png"
+                    src="/images/about/about-kitchen-preparation.jpg"
                     alt="月子餐厨房食材准备场景"
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"

@@ -11,7 +11,7 @@ export default function PageHero({ eyebrow, title, description }: PageHeroProps)
     <section className="relative overflow-hidden bg-[#FAF8F5]">
       <div
         className="absolute inset-0 bg-cover bg-center md:bg-right"
-        style={{ backgroundImage: "url('/images/hero.png')" }}
+        style={{ backgroundImage: "url('/images/hero/hero-mother-baby-meal.jpg')" }}
         aria-hidden="true"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/88 to-[#FAF8F5]/35" />

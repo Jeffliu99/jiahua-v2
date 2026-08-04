@@ -14,7 +14,7 @@ export default function ServicesPage() {
     {
       title: "30天月子餐方案",
       tag: "完整恢复支持",
-      image: "/images/service-30-days.png",
+      image: "/images/services/service-30-days.jpg",
       alt: "30天月子餐方案餐食组合",
       text: "适合希望获得完整产后餐食安排的妈妈，覆盖产后恢复关键阶段。",
       points: ["阶段化菜单安排", "每日新鲜制作", "适合多数家庭的基础选择"],
@@ -22,7 +22,7 @@ export default function ServicesPage() {
     {
       title: "剖腹产恢复方案",
       tag: "术后恢复关注",
-      image: "/images/service-c-section.png",
+      image: "/images/meal-plans/healthy-grain-meal.jpg",
       alt: "剖腹产恢复方案清淡月子餐",
       text: "针对剖腹产后的饮食舒适度与恢复节奏，提供更温和的餐食搭配。",
       points: ["重视清淡与易消化", "照顾术后恢复节奏", "减少家庭备餐压力"],
@@ -30,7 +30,7 @@ export default function ServicesPage() {
     {
       title: "哺乳期营养方案",
       tag: "持续营养支持",
-      image: "/images/service-breastfeeding.png",
+      image: "/images/hero/hero-mother-baby-meal.jpg",
       alt: "哺乳期营养方案餐食组合",
       text: "为哺乳阶段提供更持续的营养支持，帮助妈妈在新生活节奏中保持稳定。",
       points: ["关注持续营养补充", "适合哺乳期家庭", "菜单搭配更灵活"],
@@ -38,7 +38,7 @@ export default function ServicesPage() {
     {
       title: "高端定制方案",
       tag: "个性化安排",
-      image: "/images/service-premium.png",
+      image: "/images/meal-plans/salmon-set-meal.jpg",
       alt: "高端定制月子餐方案摆盘",
       text: "适合有特别口味、配送或家庭安排需求的客户，咨询后匹配更合适方案。",
       points: ["根据需求沟通安排", "适合个性化偏好", "可配合家庭节奏"],

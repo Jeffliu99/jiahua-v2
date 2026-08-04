@@ -13,19 +13,19 @@ export default function NutritionPage() {
   const stages = [
     {
       title: "产后初期",
-      image: "/images/home-soup.png",
+      image: "/images/soups/home-soup.jpg",
       alt: "温润滋补汤品",
       text: "以温和、清淡、易消化为重点，帮助妈妈逐步适应恢复节奏。",
     },
     {
       title: "恢复调整期",
-      image: "/images/home-meal-set.png",
+      image: "/images/meal-plans/home-meal-set.jpg",
       alt: "完整月子餐套餐",
       text: "在饮食舒适的基础上，逐步加强营养搭配，支持体力恢复。",
     },
     {
       title: "哺乳支持期",
-      image: "/images/service-breastfeeding.png",
+      image: "/images/hero/hero-mother-baby-meal.jpg",
       alt: "哺乳期营养月子餐组合",
       text: "关注持续营养补充与日常用餐稳定性，让妈妈更从容进入新生活。",
     },
@@ -132,7 +132,7 @@ export default function NutritionPage() {
               <div className="group overflow-hidden rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] shadow-sm">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src="/images/service-30-days.png"
+                    src="/images/services/service-30-days.jpg"
                     alt="丰富均衡的月子餐组合"
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
