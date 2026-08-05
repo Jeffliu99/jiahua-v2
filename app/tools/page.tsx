@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import SharePanel from "@/components/SharePanel";
 
 export const metadata: Metadata = {
   title: "实用妈妈工具｜加华月子餐｜孕期与宝宝工具中心",
@@ -216,7 +217,29 @@ export default function ToolsPage() {
           </div>
         </div>
       </section>
+      {/* Share */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-5xl px-6 md:px-8">
+          <div className="mb-8 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+              SHARE
+            </div>
 
+            <h2 className="text-3xl font-bold text-[#1F4E4C]">
+              分享给更多家庭
+            </h2>
+
+            <p className="mt-4 text-gray-600">
+              如果这些孕期和宝宝工具对您有帮助，
+              欢迎分享给准妈妈、新手爸妈和家人朋友。
+            </p>
+          </div>
+
+          <SharePanel
+            title="实用妈妈工具｜加华月子餐"
+          />
+        </div>
+      </section>
       <section className="py-12 md:py-14 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
           <div className="text-[#F4D7A7] font-semibold mb-4">需要更具体的孕期或产后餐食建议？</div>

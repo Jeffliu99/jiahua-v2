@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "./ContactForm";
 import PageHero from "../components/PageHero";
+import SharePanel from "@/components/SharePanel";
 
 export const metadata: Metadata = {
   title: "预约咨询｜加华月子餐",
@@ -80,7 +81,12 @@ export default function ContactPage() {
                 <p className="text-white/78 leading-7 mb-4">
                   如果您希望更快沟通，也可以直接通过微信、WhatsApp 扫码、电话或邮箱联系我们。
                 </p>
-
+              {/* Share */}
+              <section className="my-12">
+                <SharePanel
+                  title="预约咨询｜加华月子餐"
+                />
+              </section>
                 <div className="grid gap-3 mb-5">
                   {directContacts.map((item) => (
                     <div

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "../components/PageHero";
+import SharePanel from "@/components/SharePanel";
 
 export const metadata: Metadata = {
   title: "妈妈故事｜加华月子餐",
@@ -160,7 +161,29 @@ export default function StoriesPage() {
           </div>
         </div>
       </section>
+      {/* Share */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-5xl px-6 md:px-8">
+          <div className="mb-8 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+              SHARE
+            </div>
 
+            <h2 className="text-3xl font-bold text-[#1F4E4C]">
+              分享给更多妈妈
+            </h2>
+
+            <p className="mt-4 text-gray-600">
+              如果这些真实故事对您有帮助，
+              欢迎分享给正在备产或产后恢复的家人朋友。
+            </p>
+          </div>
+
+          <SharePanel
+            title="妈妈故事｜加华月子餐"
+          />
+        </div>
+      </section>
       {/* CTA */}
       <section className="py-12 md:py-14 bg-[#1F4E4C]">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">

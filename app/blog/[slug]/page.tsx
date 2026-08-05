@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHero from "../../components/PageHero";
 import { getCategoryBySlug, getPostBySlug, getPublishedPosts } from "@/lib/blog-data";
+import SharePanel from "@/components/SharePanel";
 
 type BlogDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -129,6 +130,27 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             />
           </article>
         </div>
+      </section>
+      {/* Share */}
+      <section className="mt-16 border-t border-[#E8DCC9] pt-12">
+        <div className="mb-8 text-center">
+          <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+            SHARE
+          </div>
+
+          <h2 className="text-3xl font-bold text-[#1F4E4C]">
+            分享给更多妈妈
+          </h2>
+
+          <p className="mt-4 text-gray-600">
+            如果这篇文章对您有帮助，
+            欢迎分享给正在备产或产后恢复的家人朋友。
+          </p>
+        </div>
+
+        <SharePanel
+          title={post.title}
+        />
       </section>
 
       {relatedPosts.length > 0 && (

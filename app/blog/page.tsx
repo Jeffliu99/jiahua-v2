@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "../components/PageHero";
 import { blogCategories, getCategoryBySlug, getPublishedPosts } from "@/lib/blog-data";
+import SharePanel from "@/components/SharePanel";
 
 export const metadata: Metadata = {
   title: "博客｜加华月子餐",
@@ -195,6 +196,27 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             })}
           </div>
         </div>
+      </section>
+      {/* Share */}
+      <section className="bg-white py-16">
+        <div className="mb-8 text-center">
+          <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+            Share
+          </div>
+
+          <h2 className="text-3xl font-bold text-[#1F4E4C]">
+            分享给更多妈妈
+          </h2>
+
+          <p className="mt-4 text-gray-600">
+            如果这些产后恢复与营养知识对您有帮助，
+            欢迎分享给正在备产或产后恢复的家人朋友。
+          </p>
+        </div>
+
+        <SharePanel
+          title="加华月子餐博客｜产后恢复与月子营养知识"
+        />
       </section>
     </main>
   );

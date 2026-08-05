@@ -321,24 +321,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* Share Section */}
-      <section className="bg-white py-12">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h3 className="text-2xl font-bold text-[#1F4E4C]">
-            觉得内容有帮助？
-          </h3>
-
-          <p className="mt-3 text-gray-600">
-            欢迎分享给正在准备生产或产后恢复的家人朋友。
-          </p>
-
-          <div className="mt-6">
-            <SharePanel
-              title="加华月子餐｜GTA专业产后营养支持与月子餐服务"
-            />
-          </div>
-        </div>
-      </section>
+{/* Share */}
+<section className="bg-white py-16">
+  <div className="mx-auto max-w-5xl px-6 md:px-8">
+    <div className="mb-8 text-center">
+        <h2 className="text-3xl*font-bold text-[#1F4E4C]">
+       分享给需要的家人朋友
+      </h2>
+      <p className="mt-4 text-gray-600">
+      如果这些内容对您有帮助，欢迎分享给正在备产或产后恢复的妈妈们。
+      </p>
+    </div>
+    <SharePanel
+      title="关于加华月子餐｜GTA专业产后营养支持"
+    />
+  </div>
+</section>
       {/* CTA */}
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
