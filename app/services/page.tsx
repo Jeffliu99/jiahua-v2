@@ -47,11 +47,37 @@ export default function ServicesPage() {
   ];
 
   const process = [
-    "提交预约咨询",
-    "了解生产阶段与所在区域",
-    "匹配合适服务方案",
-    "确认餐食与配送安排",
-  ];
+  {
+    title: "预约咨询",
+    description:
+      "通过网站、微信、WhatsApp 或电话联系我们，了解预产期、所在区域及服务需求。",
+  },
+  {
+    title: "确认服务方案",
+    description:
+      "根据妈妈的生产阶段、饮食习惯、配送区域及家庭需求，为您匹配合适的月子餐方案。",
+  },
+  {
+    title: "支付订金",
+    description:
+      "确认订餐后需支付 CAD $100 订金，用于预留名额、安排生产计划及配送服务。",
+  },
+  {
+    title: "通知开餐",
+    description:
+      "宝宝出生后，请尽快与我们联系确认开餐时间。为确保餐食能够准时送达，建议至少提前 12 小时通知我们安排制作与配送服务。",
+  },
+  {
+    title: "开始配送",
+    description:
+      "按照确认日期正式开餐，每日配送三餐三点，并搭配养生煲汤、新鲜水果、养生甜品及手工面点。",
+  },
+  {
+    title: "支付尾款",
+    description:
+      "开餐当天支付剩余餐费。可通过 EMT 电子转账或现金支付。如选择现金支付，可由配送司机上门收取尾款。",
+  },
+];
 
   return (
     <main className="bg-[#FAF8F5] font-sans">
@@ -121,31 +147,47 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-12 md:py-16 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="text-[#D6B37F] font-medium mb-3">预约流程</div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4E4C] mb-5">
-              从咨询到确认，流程清楚简单
-            </h2>
+{/* Ordering Process */}
+<section className="bg-white py-20">
+  <div className="mx-auto max-w-7xl px-6 md:px-8">
+    <div className="mx-auto mb-12 max-w-3xl text-center">
+      <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+        Ordering Process
+      </div>
+
+      <h2 className="text-3xl font-bold text-[#1F4E4C] md:text-5xl">
+        六步订餐流程
+      </h2>
+
+      <p className="mt-5 leading-8 text-gray-600">
+        从预约咨询到正式开餐，每一步都清楚简单，让妈妈和家人更安心。
+      </p>
+    </div>
+
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {process.map((step, index) => (
+        <article
+          key={step.title}
+          className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+        >
+          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#1F4E4C] text-lg font-bold text-white">
+            {index + 1}
           </div>
 
-          <div className="grid md:grid-cols-4 gap-5">
-            {process.map((item, index) => (
-              <div
-                key={item}
-                className="rounded-3xl border border-[#F0E8DD] bg-white p-6 text-center"
-              >
-                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#1F4E4C] text-sm font-bold text-white">
-                  {index + 1}
-                </div>
-                <h3 className="font-bold text-[#1F4E4C] leading-7">{item}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <h3 className="text-xl font-bold text-[#1F4E4C]">
+            {step.title}
+          </h3>
+
+          <p className="mt-4 leading-8 text-gray-600">
+            {step.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 {/* Share */}
 <section className="bg-white py-6">
   <div className="mx-automax-w-5xl px-6 md:px-8">

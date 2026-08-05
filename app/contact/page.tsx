@@ -42,7 +42,14 @@ const qrCards = [
     alt: "WhatsApp 咨询二维码",
   },
 ];
-
+const orderingSteps = [
+  "预约咨询",
+  "确认服务方案",
+  "支付 CAD $100 订金",
+  "宝宝出生后通知开餐",
+  "开始配送月子餐",
+  "支付尾款",
+];
 export default function ContactPage() {
   return (
     <main className="bg-[#FAF8F5] font-sans">
@@ -57,7 +64,58 @@ export default function ContactPage() {
         }
         description="填写表单后，加华月子餐会根据您的生产阶段、所在区域与服务需求，尽快与您联系。"
       />
+      {/* Compact Ordering Process */}
+      <section className="my-10">
+        <div className="rounded-3xl border border-[#E8DCC9] bg-[#FAF8F5] p-6">
+          <div className="mb-5 text-center">
+            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#C9A18A]">
+              Ordering Process
+            </div>
 
+            <h2 className="text-xl font-bold text-[#1F4E4C]">
+              六步订餐流程
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-6">
+            {[
+              "预约咨询",
+              "确认方案",
+              "支付订金",
+              "通知开餐",
+              "开始配送",
+              "支付尾款",
+            ].map((step, index) => (
+              <div
+                key={step}
+                className="
+                  flex
+                  flex-col
+                  items-center
+                  rounded-2xl
+                  bg-white
+                  px-3
+                  py-4
+                  text-center
+                  shadow-sm
+                "
+              >
+                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#1F4E4C] text-sm font-bold text-white">
+                  {index + 1}
+                </div>
+
+                <span className="text-sm font-medium text-[#1F4E4C]">
+                  {step}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 text-center text-sm text-gray-500">
+            确认订餐后需支付 CAD $100 订金，开餐当天支付尾款。
+          </p>
+        </div>
+      </section>
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-start">
