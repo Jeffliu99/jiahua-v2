@@ -133,10 +133,10 @@ active:translate-y-0
         </EmailShareButton>
 
         <button
-          onClick={shareToXiaohongshu}
-          className={iconBtn}
+            onClick={shareToXiaohongshu}
+            className={iconBtn}
         >
-          小红书
+        📌 复制到小红书
         </button>
 
         <button
