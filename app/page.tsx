@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import SharePanel from "@/components/SharePanel";
 
 export const metadata: Metadata = {
   title: "加华月子餐｜GTA专业产后营养支持与月子餐服务",
@@ -320,7 +321,24 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* Share Section */}
+      <section className="bg-white py-12">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h3 className="text-2xl font-bold text-[#1F4E4C]">
+            觉得内容有帮助？
+          </h3>
 
+          <p className="mt-3 text-gray-600">
+            欢迎分享给正在准备生产或产后恢复的家人朋友。
+          </p>
+
+          <div className="mt-6">
+            <SharePanel
+              title="加华月子餐｜GTA专业产后营养支持与月子餐服务"
+            />
+          </div>
+        </div>
+      </section>
       {/* CTA */}
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
