@@ -17,9 +17,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "加华月子餐 | Jiahua Postpartum Nutrition",
-  description: "加拿大专业产后营养服务，提供月子餐、产后恢复营养支持与GTA配送服务。",
-};
+  description:
+    "加拿大专业产后营养服务，提供月子餐、产后恢复营养支持与 GTA 配送服务。",
 
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
+};
 export default function RootLayout({
   children,
 }: Readonly<{
