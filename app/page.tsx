@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SharePanel from "@/components/SharePanel";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "加华月子餐｜GTA专业产后营养支持与月子餐服务",
@@ -82,38 +83,24 @@ export default function HomePage() {
   return (
     <main className="bg-[#FAF8F5]">
       {/* Hero */}
-      <section className="relative isolate overflow-hidden border-b border-[#E8DCC9] bg-[#FAF8F5]">
-        <div className="absolute inset-y-0 right-0 hidden w-[58%] lg:block">
-          <Image
-            src="/images/hero/hero-mother-baby-meal.jpg"
-            alt="加华月子餐母婴与餐食主视觉"
-            fill
-            priority
-            className="object-cover object-center opacity-85"
-            sizes="58vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/72 to-[#FAF8F5]/8" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5]/75 via-transparent to-transparent" />
-        </div>
+      <PageHero
+        eyebrow="GTA 专业产后营养支持"
+        title={
+          <>
+            为新生命而喜悦，
+            <br />
+            为妈妈的恢复而用心。
+          </>
+        }
+        description="融合传统产后调理智慧与现代营养科学，为 GTA 华人家庭提供月子餐、营养支持与贴心配送服务。"
+        height="lg"
+      />
 
-        <div className="mx-auto grid min-h-[720px] max-w-7xl items-center px-6 py-20 md:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:py-24">
-          <div className="relative z-10 max-w-3xl">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#E8DCC9] bg-white/90 px-5 py-3 text-sm font-semibold text-[#B8915D] shadow-sm">
-              <span>★</span>
-              <span>GTA 专业产后营养支持</span>
-            </div>
-
-            <h1 className="text-4xl font-bold leading-tight tracking-[-0.04em] text-[#1F4E4C] md:text-6xl lg:text-7xl">
-              为新生命而喜悦，
-              <br />
-              为妈妈的恢复而用心。
-            </h1>
-
-            <p className="mt-8 max-w-2xl text-lg leading-9 text-[#334155] md:text-xl">
-              融合传统产后调理智慧与现代营养科学，为 GTA 华人家庭提供月子餐、营养支持与贴心配送。
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+      {/* Hero Action Card */}
+      <section className="relative z-10 -mt-16 pb-12">
+        <div className="mx-auto max-w-6xl px-6 md:px-8">
+          <div className="rounded-[2rem] border border-[#E8DCC9] bg-white p-8 shadow-xl">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-[#1F4E4C] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#1F4E4C]/15 transition hover:-translate-y-0.5 hover:bg-[#173D3B]"
@@ -123,21 +110,23 @@ export default function HomePage() {
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-[#D6B37F] bg-white/80 px-8 py-4 text-base font-semibold text-[#1F4E4C] transition hover:-translate-y-0.5 hover:bg-[#D6B37F]/10"
+                className="inline-flex items-center justify-center rounded-full border border-[#D6B37F] bg-white px-8 py-4 text-base font-semibold text-[#1F4E4C] transition hover:-translate-y-0.5 hover:bg-[#D6B37F]/10"
               >
                 服务方案 →
               </Link>
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {heroFeatures.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-3xl border border-[#E8DCC9] bg-white/80 p-4 shadow-sm backdrop-blur-sm"
+                  className="rounded-2xl bg-[#FAF8F5] p-5 text-center"
                 >
                   <div className="text-2xl text-[#C9A18A]">{feature.icon}</div>
-                  <h3 className="mt-2 font-bold text-[#1F4E4C]">{feature.title}</h3>
-                  <p className="mt-1 text-sm text-gray-600">{feature.text}</p>
+                  <h3 className="mt-3 font-bold text-[#1F4E4C]">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">{feature.text}</p>
                 </div>
               ))}
             </div>
@@ -162,10 +151,15 @@ export default function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {highlights.map((item) => (
-              <div key={item.title} className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-7 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1F4E4C]">{item.title}</h3>
+              <article
+                key={item.title}
+                className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <h3 className="text-xl font-bold text-[#1F4E4C]">
+                  {item.title}
+                </h3>
                 <p className="mt-4 leading-8 text-gray-600">{item.text}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -196,7 +190,10 @@ export default function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {photoCards.map((card) => (
-              <article key={card.title} className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-sm">
+              <article
+                key={card.title}
+                className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-sm"
+              >
                 <div className="relative aspect-[4/5] bg-[#FAF8F5]">
                   <Image
                     src={card.image}
@@ -207,7 +204,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-7">
-                  <h3 className="text-xl font-bold text-[#1F4E4C]">{card.title}</h3>
+                  <h3 className="text-xl font-bold text-[#1F4E4C]">
+                    {card.title}
+                  </h3>
                   <p className="mt-4 leading-8 text-gray-600">{card.text}</p>
                 </div>
               </article>
@@ -241,10 +240,18 @@ export default function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {services.map((service) => (
-              <article key={service.title} className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-7 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1F4E4C]">{service.title}</h3>
+              <article
+                key={service.title}
+                className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <h3 className="text-xl font-bold text-[#1F4E4C]">
+                  {service.title}
+                </h3>
                 <p className="mt-4 leading-8 text-gray-600">{service.text}</p>
-                <Link href="/services" className="mt-6 inline-flex font-semibold text-[#B8915D]">
+                <Link
+                  href="/services"
+                  className="mt-6 inline-flex font-semibold text-[#B8915D]"
+                >
                   了解更多 →
                 </Link>
               </article>
@@ -303,10 +310,15 @@ export default function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {storyCards.map((story) => (
-              <article key={story.location} className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-8 shadow-sm">
+              <article
+                key={story.location}
+                className="rounded-[2rem] border border-[#E8DCC9] bg-[#FAF8F5] p-8 shadow-sm"
+              >
                 <div className="mb-4 text-[#D6B37F]">★★★★★</div>
                 <p className="leading-8 text-gray-600">{story.text}</p>
-                <p className="mt-5 font-semibold text-[#1F4E4C]">— {story.location}</p>
+                <p className="mt-5 font-semibold text-[#1F4E4C]">
+                  — {story.location}
+                </p>
               </article>
             ))}
           </div>
@@ -321,22 +333,26 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-{/* Share */}
-<section className="bg-white py-16">
-  <div className="mx-auto max-w-5xl px-6 md:px-8">
-    <div className="mb-8 text-center">
-        <h2 className="text-3xl*font-bold text-[#1F4E4C]">
-       分享给需要的家人朋友
-      </h2>
-      <p className="mt-4 text-gray-600">
-      如果这些内容对您有帮助，欢迎分享给正在备产或产后恢复的妈妈们。
-      </p>
-    </div>
-    <SharePanel
-      title="关于加华月子餐｜GTA专业产后营养支持"
-    />
-  </div>
-</section>
+
+      {/* Share */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-5xl px-6 md:px-8">
+          <div className="mb-8 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+              Share
+            </div>
+            <h2 className="text-3xl font-bold text-[#1F4E4C]">
+              分享给需要的家人朋友
+            </h2>
+            <p className="mt-4 text-gray-600">
+              如果这些内容对您有帮助，欢迎分享给正在备产或产后恢复的妈妈们。
+            </p>
+          </div>
+
+          <SharePanel title="加华月子餐｜GTA专业产后营养支持与月子餐服务" />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
@@ -361,10 +377,16 @@ export default function HomePage() {
             如果您正在为产后恢复做准备，欢迎预约营养顾问，了解更适合自己的服务方案。
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href="/contact" className="rounded-full bg-[#1F4E4C] px-8 py-4 font-semibold text-white hover:bg-[#173D3B]">
+            <Link
+              href="/contact"
+              className="rounded-full bg-[#1F4E4C] px-8 py-4 font-semibold text-white hover:bg-[#173D3B]"
+            >
               预约营养顾问
             </Link>
-            <Link href="/services" className="rounded-full border border-[#D6B37F] px-8 py-4 font-semibold text-[#1F4E4C] hover:bg-[#D6B37F]/10">
+            <Link
+              href="/services"
+              className="rounded-full border border-[#D6B37F] px-8 py-4 font-semibold text-[#1F4E4C] hover:bg-[#D6B37F]/10"
+            >
               查看服务方案
             </Link>
           </div>
