@@ -25,6 +25,7 @@ const zhNavItems: NavItem[] = [
 const enNavItems: NavItem[] = [
   { href: "/en", label: "Home" },
   { href: "/en/about", label: "About" },
+    { href: "/en/services", label: "Services" },
   { href: "/en/meal-plans", label: "Meal Plans" },
   { href: "/en/faq", label: "FAQ" },
   { href: "/en/contact", label: "Contact" },
