@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SharePanel from "@/components/SharePanel";
+import { handmadeDessertsSchema } from "@/lib/schema/handmade-desserts-service-schema";
 
 export const metadata: Metadata = {
   title: "加华手作甜品 | Handmade Desserts",
@@ -23,6 +24,14 @@ const categories = [
 export default function HandmadeDessertsPage() {
   return (
     <>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            handmadeDessertsSchema
+          ).replace(/</g, "\\u003c"),
+        }}
+      />
       <PageHero
         eyebrow="Handmade Desserts"
         title="加华手作甜品"

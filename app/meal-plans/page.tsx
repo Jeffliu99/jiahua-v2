@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CustomerFeedbackSection from "@/components/CustomerFeedbackSection";
 import SharePanel from "@/components/SharePanel";
+import { postpartumMealSchema } from "@/lib/schema/meal-plans-service-schema";
 
 export const metadata = {
   title: "月子餐菜单｜加华月子餐",
@@ -170,6 +171,15 @@ const stages = [
 export default function MealPlansPage() {
   return (
     <main className="bg-[#FAF8F5]">
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(postpartumMealSchema).replace(
+              /</g,
+              "\\u003c"
+            ),
+          }}
+        />
       {/* Hero */}
       <section className="relative isolate overflow-hidden bg-[#153d3b]">
         <div className="absolute inset-0 -z-10">

@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SharePanel from "@/components/SharePanel";
+import { handmadeDimSumSchema } from "@/lib/schema/handmade-dim-sum-service-schema";
+import { handmadeDimSumBreadcrumbSchema} from "@/lib/schema/handmade-dim-sum-breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "加华手工面点 | Handmade Dim Sum",
@@ -21,13 +23,30 @@ const categories = [
 export default function HandmadeDimSumPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+        handmadeDimSumSchema
+        ).replace(/</g, "\\u003c"),
+        }}
+      />
+
+      <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          handmadeDimSumBreadcrumbSchema
+        ).replace(/</g, "\\u003c"),
+      }}
+      />
       <PageHero
         eyebrow="Handmade Dim Sum"
         title="加华手工面点"
         description="每日手工制作 · 自然发酵 · 新鲜现蒸"
         height="lg"
       />
-
+  
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="mb-10 text-center">
