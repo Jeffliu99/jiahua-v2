@@ -22,19 +22,19 @@ const premiumIngredients = ["鲈鱼", "三文鱼", "鲜虾", "优质鸡肉", "�
 
 const deliveryMeals = [
   {
-    src: "/images/meal-plans/steamed-fish-meal.jpg",
-    title: "清蒸鲜鱼餐",
-    description: "鲜鱼汤、清蒸鲜鱼、蔬菜、米饭与时令水果组合。",
+    src: "/images/meal-plans/postpartum-chicken-set.png",
+    title: "滋补鸡肉套餐",
+    description: "主菜、时蔬、养生汤与营养饭组合。",
   },
   {
-    src: "/images/meal-plans/shrimp-rice-meal.jpg",
-    title: "五彩炒虾仁餐",
-    description: "鲜虾、时令蔬菜、养生饭与汤水搭配。",
+    src: "/images/meal-plans/postpartum-shrimp-set.png",
+    title: "鲜虾营养套餐",
+    description: "鲜虾、时蔬、养生汤与营养饭组合。",
   },
   {
-    src: "/images/meal-plans/cantonese-postpartum-meal.jpg",
-    title: "粤式月子餐组合",
-    description: "姜汁鸡、养生汤、双色米饭与清爽配菜。",
+    src: "/images/meal-plans/postpartum-fish-set.png",
+    title: "清蒸鲜鱼套餐",
+    description: "鲜鱼、时蔬、养生汤与营养饭组合。",
   },
 ];
 
@@ -42,17 +42,17 @@ const dailyExtras = [
   {
     title: "养生甜品",
     description: "芝麻糊、杏仁糊、银耳羹、莲子百合糖水、草莓奶油甜品杯等每日轮换搭配。",
-    image: "/images/desserts/strawberry-dessert-cups.jpg",
+    image: "/images/desserts/traditional-dessert-selection.jpg",
   },
   {
     title: "手工面点",
     description: "小笼包、水饺、云吞、烧卖、馄饨、煎饼等手工面点，丰富三点搭配。",
-    image: "/images/bakery/handmade-snacks-and-pastries.jpg",
+    image: "/images/dim-sum/dim-sum-all.png",
   },
   {
     title: "现烤糕点",
     description: "紫菜肉松蛋糕、精品 Cupcake、蛋挞与每日烘焙点心，让月子期间饮食更加丰富。",
-    image: "/images/bakery/premium-cupcake-gift-box.jpg",
+    image: "/images/desserts/handmade-desserts-all.png",
   },
 ];
 

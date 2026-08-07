@@ -32,7 +32,7 @@ export default function Footer() {
         { href: "/about", label: "品牌故事" },
         { href: "/nutrition", label: "营养理念" },
         { href: "/stories", label: "妈妈故事" },
-        { href: "/blog", label: "博客" },
+        { href: "/faq", label: "常见问题" },
       ];
 
   const contactLinks = isEnglish

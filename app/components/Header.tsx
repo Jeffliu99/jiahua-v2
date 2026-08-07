@@ -14,12 +14,12 @@ const zhNavItems: NavItem[] = [
   { href: "/", label: "首页" },
   { href: "/about", label: "关于我们" },
   { href: "/services", label: "服务方案" },
-  { href: "/meal-plans", label: "月子餐菜单" },
+  { href: "/meal-plans", label: "菜品展示" },
+  { href: "/handmade-desserts", label: "手作甜品" },
   { href: "/nutrition", label: "营养理念" },
-  { href: "/stories", label: "妈妈故事" },
   { href: "/blog", label: "博客" },
   { href: "/tools", label: "工具" },
-  { href: "/faq", label: "FAQ" },
+ 
 ];
 
 const enNavItems: NavItem[] = [
@@ -27,7 +27,7 @@ const enNavItems: NavItem[] = [
   { href: "/en/about", label: "About" },
     { href: "/en/services", label: "Services" },
   { href: "/en/meal-plans", label: "Meal Plans" },
-  { href: "/en/faq", label: "FAQ" },
+  { href: "/en/handmade-desserts", label: "Handmade Desserts" },
   { href: "/en/contact", label: "Contact" },
   { href: "/en/blog", label: "Blog" },
 ];
