@@ -167,7 +167,10 @@ const stages = [
     ],
   },
 ];
-
+const featuredMealdaily =  {
+  image: "/images/meal-plans/meal-plan-daily-showcase.png",
+  alt: "加华每日月子餐搭配示例",
+};
 export default function MealPlansPage() {
   return (
     <main className="bg-[#FAF8F5]">
@@ -404,42 +407,37 @@ export default function MealPlansPage() {
         </div>
       </section>
 
-      {/* Real Meals Gallery */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
-                Real Meals
-              </div>
-              <h2 className="text-3xl font-bold text-[#1F4E4C] md:text-5xl">
-                真实餐食展示
-              </h2>
-            </div>
-            <p className="max-w-2xl leading-8 text-gray-600">
-              每日餐食包含正餐、汤品、水果、甜品、面点与糕点。以下图片展示实际餐食组合示例。
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {samplePhotos.map((photo) => (
-              <article key={photo.src} className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-sm">
-                <div className="relative aspect-[4/5] w-full bg-[#FAF8F5]">
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-[#1F4E4C]">{photo.title}</h3>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+{/* Typical Daily Meal Plan */}
+<section className="bg-white py-20">
+  <div className="mx-auto max-w-7xl px-6 md:px-8">
+    <div className="mx-auto mb-12 max-w-3xl text-center">
+      <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+        Typical Daily Meal Plan
+      </div>
+
+      <h2 className="text-3xl font-bold text-[#1F4E4C] md:text-5xl">
+        典型每日月子餐搭配
+      </h2>
+
+      <p className="mt-5 leading-8 text-gray-600">
+        早餐暖胃调养，午餐补充优质蛋白，
+        晚餐温和恢复，帮助妈妈获得均衡营养支持。
+      </p>
+    </div>
+
+    <div className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-xl">
+      <div className="relative aspect-[16/10]">
+        <Image
+          src={featuredMealdaily.image}
+          alt={featuredMealdaily.alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />  
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Why Choose */}
       <section className="bg-white py-20">
