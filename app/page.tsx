@@ -78,7 +78,10 @@ const photoCards = [
     alt: "加华月子餐打包配送场景",
   },
 ];
-
+const featuredMeal =  {
+  image: "/images/home/featured-postpartum-meals.png",
+  alt: "加华月子餐明星月子餐展示",
+};
 export default function HomePage() {
   return (
     <main className="bg-[#FAF8F5]">
@@ -164,7 +167,36 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* Featured Meal */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="mb-10 text-center">
+            <span className="text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">
+              Featured Meals
+            </span>
 
+            <h2 className="mt-3 text-3xl font-bold text-[#1F4E4C] md:text-5xl">
+              明星月子餐
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl leading-8 text-gray-600">
+              真实每日制作，科学配餐，为妈妈提供均衡且温和的产后营养支持。
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] shadow-xl">
+            <div className="relative aspect-[4/3] bg-[#FAF8F5]">
+              <Image
+                src={featuredMeal.image}
+                alt={featuredMeal.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Real Photos */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
