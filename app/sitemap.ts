@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://jiahuameal.com";
+  const baseUrl = "https://www.jiahuameal.com";
 
   const routes = [
     "",
@@ -12,16 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/contact",
     "/blog",
-
-    // 未来服务页面（提前保留）
-    "/miscarriage-recovery-meals",
-    "/prenatal-lactation-meals",
-    "/post-surgery-meals",
-    "/family-meals",
-
-    // 未来功能页面
-    "/customer-login",
-    "/shop",
 
     // 英文版（上线时启用）
     "/en",
