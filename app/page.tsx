@@ -153,18 +153,18 @@ export default function HomePage() {
       </p>
     </div>
 
-    <div className="overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-xl">
-      <video
-        className="w-full"
-        controls
-        preload="metadata"
-        poster="/images/home/video-cover.jpg"
+    <div className="mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-[#E8DCC9] bg-white shadow-xl">
+        <video
+          className="w-full"
+          controls
+          preload="metadata"
+          poster="/images/home/video-cover.jpg"
         >
-        <source src="/videos/jiahua-introduction.mp4" type="video/mp4" />
+          <source src="/videos/jiahua-introduction.mp4" type="video/mp4" />
+          您的浏览器不支持视频播放。
+        </video>
+  </div>
 
-        您的浏览器不支持视频播放。
-      </video>
-    </div>
 
     <div className="mt-10 grid gap-6 md:grid-cols-3">
       <div className="rounded-2xl bg-[#FAF8F5] p-6 text-center">
