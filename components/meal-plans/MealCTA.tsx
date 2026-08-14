@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function MealCTA() { return <section className="py-20"><div className="mx-auto max-w-4xl px-6 text-center md:px-8"><h2 className="mb-6 text-4xl font-bold text-[#1F4E4C]">想了解适合您的月子餐方案？</h2><p className="mb-8 text-lg text-gray-600">欢迎联系我们了解套餐内容、配送范围与开餐安排。</p><Link href="/contact" className="inline-flex rounded-full bg-[#1F4E4C] px-8 py-4 font-semibold text-white shadow-sm transition hover:bg-[#173D3B]">预约咨询</Link></div></section>; }

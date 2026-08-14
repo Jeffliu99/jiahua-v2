@@ -1,0 +1,2 @@
+import { mealHighlights } from "@/data/meal-plans/highlights";
+export default function MealHighlights() { return <section className="py-12"><div className="mx-auto max-w-7xl px-6 md:px-8"><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">{mealHighlights.map((item)=><div key={item} className="rounded-3xl border border-[#E8DCC9] bg-white p-5 text-center shadow-sm"><p className="font-semibold text-[#1F4E4C]">✓ {item}</p></div>)}</div></div></section>; }

@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf8f5;
+  --foreground: #1f4e4c;
+  --brand-green: #1f4e4c;
+  --brand-green-dark: #173d3b;
+  --brand-gold: #d6b37f;
+  --brand-gold-light: #f4d7a7;
+  --brand-cream: #faf8f5;
+  --card-border: #f0e8dd;
+
+  --font-jiahua-sans:
+    "Noto Sans SC",
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jiahua-sans);
+  --font-mono: var(--font-jiahua-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jiahua-sans);
+  line-height: 1.7;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-jiahua-sans);
+  font-weight: 700;
+}
+
+p,
+li,
+span,
+div {
+  font-family: inherit;
+}
+
+/* Backward compatibility: keep existing font-song class but map it to sans */
+.font-song {
+  font-family: var(--font-jiahua-sans);
+}
+
+/* Slightly reduce oversized Tailwind heading utilities across the site */
+.text-7xl {
+  font-size: 3.75rem !important;
+  line-height: 1.05 !important;
+}
+
+.text-6xl {
+  font-size: 3rem !important;
+  line-height: 1.08 !important;
+}
+
+.text-5xl {
+  font-size: 2.5rem !important;
+  line-height: 1.12 !important;
+}
+
+.text-4xl {
+  font-size: 2rem !important;
+  line-height: 1.2 !important;
+}
+
+.text-3xl {
+  font-size: 1.625rem !important;
+  line-height: 1.3 !important;
+}
+
+::selection {
+  background: var(--brand-gold);
+  color: #173d3b;
+}
+/* Compact Footer */
+.site-footer-compact {
+  background: #173d3b;
+  color: #ffffff;
+}
+
+.site-footer-compact > div:first-child {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.site-footer-compact h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.site-footer-compact h4 {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #f4d7a7;
+  margin-bottom: 0.6rem;
+}
+
+.site-footer-compact p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.site-footer-compact ul {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.site-footer-compact li,
+.site-footer-compact a {
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.site-footer-compact a {
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.2s ease;
+}
+
+.site-footer-compact a:hover {
+  color: #f4d7a7;
+}
+
+.site-footer-compact .footer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.65rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: #f4d7a7;
+  color: #173d3b;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.site-footer-compact .footer-bottom {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-compact .footer-bottom p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* Desktop compact layout */
+@media (min-width: 768px) {
+  .site-footer-compact > div:first-child {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .site-footer-compact h3 {
+    font-size: 1.5rem;
+  }
+
+  .site-footer-compact p {
+    max-width: 22rem;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 767px) {
+  .site-footer-compact > div:first-child {
+    padding-top: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .site-footer-compact h3 {
+    font-size: 1.25rem;
+  }
+
+  .site-footer-compact h4 {
+    margin-bottom: 0.45rem;
+  }
+
+  .site-footer-compact ul {
+    gap: 0.25rem;
+  }
+
+  .site-footer-compact .footer-cta {
+    width: 100%;
+  }
+  /* Interactive elements */
+button,
+a,
+[role="button"],
+summary {
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+button:hover,
+a:hover,
+[role="button"]:hover,
+summary:hover {
+  opacity: 0.92;
+}
+}

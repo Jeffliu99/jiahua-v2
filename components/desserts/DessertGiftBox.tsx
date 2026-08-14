@@ -1,0 +1,1 @@
+import Link from "next/link"; export default function(){return <section className="py-16 text-center"><h2>节日礼盒与团体订购</h2><p>支持家庭聚会、节日礼盒与企业订购咨询。</p><Link href="/contact">预约咨询 →</Link></section>}

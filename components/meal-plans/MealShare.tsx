@@ -1,0 +1,2 @@
+import SharePanel from "@/components/SharePanel";
+export default function MealShare() { return <section className="bg-white py-16"><div className="mx-auto max-w-5xl px-6 md:px-8"><div className="mb-8 text-center"><p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9A18A]">Share</p><h2 className="text-3xl font-bold text-[#1F4E4C]">分享给家人朋友</h2><p className="mt-4 text-gray-600">如果这份菜单对您有帮助，欢迎分享给正在备产或产后恢复的妈妈和家人。</p></div><SharePanel title="月子餐菜单｜加华月子餐" /></div></section>; }
