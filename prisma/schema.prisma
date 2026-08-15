@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
 }
 
 
@@ -23,7 +23,7 @@ model BlogPost {
   title       String        @db.VarChar(255)
   slug        String        @unique @db.VarChar(255)
   excerpt     String?       @db.Text
-  content     String        @db.LongText
+  content     String        @db.Text
   coverImage  String?       @map("cover_image") @db.VarChar(255)
   status      String        @default("draft") @db.VarChar(20)
   isFeatured  Boolean       @default(false) @map("is_featured")

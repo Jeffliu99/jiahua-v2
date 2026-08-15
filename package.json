@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/adapter-mariadb": "^7.9.1",
+    "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "lucide-react": "^1.28.0",
-    "mariadb": "^3.5.3",
     "next": "16.2.11",
+    "pg": "^8.23.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-share": "^5.3.0"
