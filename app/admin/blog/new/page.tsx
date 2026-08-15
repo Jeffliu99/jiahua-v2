@@ -14,7 +14,7 @@ function makeSlug(input: string) {
   const base = input
     .toLowerCase()
     .trim()
-    .replace(/['"]/g, "")
+    .replace(/[\'\"]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
@@ -77,7 +77,11 @@ async function createBlogPost(formData: FormData) {
   const excerpt = String(formData.get("excerpt") || "").trim();
   const content = String(formData.get("content") || "").trim();
   const status = String(formData.get("status") || "draft");
+  const site = String(formData.get("site") || "both");
   const categoryIdValue = String(formData.get("categoryId") || "").trim();
+  const seoTitle = String(formData.get("seoTitle") || "").trim();
+  const seoDescription = String(formData.get("seoDescription") || "").trim();
+  const seoKeywords = String(formData.get("seoKeywords") || "").trim();
   const isFeatured = formData.get("isFeatured") === "on";
   const coverFile = formData.get("coverImageFile");
 
@@ -109,6 +113,10 @@ async function createBlogPost(formData: FormData) {
         content,
         coverImage,
         status,
+        site,
+        seoTitle: seoTitle || null,
+        seoDescription: seoDescription || null,
+        seoKeywords: seoKeywords || null,
         isFeatured,
         publishedAt,
         categoryId,
@@ -122,6 +130,7 @@ async function createBlogPost(formData: FormData) {
   revalidatePath("/admin/blog");
   revalidatePath("/blog");
   revalidatePath(`/blog/${slug}`);
+
   redirect("/admin/blog?created=1");
 }
 
@@ -150,9 +159,7 @@ export default async function NewBlogPostPage({
   const error = params?.error;
 
   const categories = await prisma.blogCategory.findMany({
-    orderBy: {
-      id: "asc",
-    },
+    orderBy: { id: "asc" },
   });
 
   return (
@@ -167,7 +174,7 @@ export default async function NewBlogPostPage({
               新增 Blog 文章
             </h1>
             <p className="mt-3 text-gray-600">
-              支持富文本排版和上传封面图。新增后，前台 Blog 列表和详情页会自动读取内容。
+              支持富文本排版、上传封面图、SEO 设置和双域名发布。
             </p>
           </div>
 
@@ -200,34 +207,28 @@ export default async function NewBlogPostPage({
                   name="title"
                   type="text"
                   required
-                  placeholder="例如：月子餐第二周怎么吃？"
+                  placeholder="例如：加拿大坐月子吃什么？"
                   className="w-full rounded-2xl border border-[#E8DCC9] bg-[#FAF8F5] px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F] focus:bg-white"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">
-                  Slug
-                </label>
+                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">Slug</label>
                 <input
                   name="slug"
                   type="text"
-                  placeholder="例如：postpartum-meal-week-2-guide"
+                  placeholder="例如：what-to-eat-during-confinement-canada"
                   className="w-full rounded-2xl border border-[#E8DCC9] bg-[#FAF8F5] px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F] focus:bg-white"
                 />
-                <p className="mt-2 text-xs text-gray-500">
-                  建议填写英文 Slug，避免自动生成不理想。
-                </p>
+                <p className="mt-2 text-xs text-gray-500">建议填写英文 Slug，方便 SEO 和分享。</p>
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">
-                  文章摘要
-                </label>
+                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">文章摘要</label>
                 <textarea
                   name="excerpt"
                   rows={4}
-                  placeholder="写一段显示在 Blog 列表页和 SEO description 的摘要。"
+                  placeholder="写一段显示在 Blog 列表页的摘要。"
                   className="w-full rounded-2xl border border-[#E8DCC9] bg-[#FAF8F5] px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F] focus:bg-white"
                 />
               </div>
@@ -241,30 +242,75 @@ export default async function NewBlogPostPage({
                   可使用标题、加粗、斜体、列表、引用和链接。保存后会以 HTML 格式存入数据库。
                 </p>
               </div>
+
+              <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-5">
+                <h2 className="mb-4 text-lg font-bold text-[#1F4E4C]">SEO 设置</h2>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">SEO Title</label>
+                    <input
+                      name="seoTitle"
+                      type="text"
+                      placeholder="建议 50-60 字以内"
+                      className="w-full rounded-2xl border border-[#E8DCC9] bg-white px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">SEO Description</label>
+                    <textarea
+                      name="seoDescription"
+                      rows={3}
+                      placeholder="建议 120-160 字，适合 Google 搜索结果展示。"
+                      className="w-full rounded-2xl border border-[#E8DCC9] bg-white px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">SEO Keywords</label>
+                    <input
+                      name="seoKeywords"
+                      type="text"
+                      placeholder="例如：加拿大月子餐, 多伦多月子餐, 坐月子饮食"
+                      className="w-full rounded-2xl border border-[#E8DCC9] bg-white px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F]"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
             <aside className="space-y-6">
               <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-5">
-                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">
-                  分类
-                </label>
+                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">分类</label>
                 <select
                   name="categoryId"
                   className="w-full rounded-2xl border border-[#E8DCC9] bg-white px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F]"
                 >
                   <option value="">请选择分类</option>
-                    {categories.map((category: { id: number; name: string }) => (
-                      <option key={category.id} value={category.id}>
-                        {category.name}
-                      </option>
-                    ))}
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
               <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-5">
-                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">
-                  状态
-                </label>
+                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">显示站点</label>
+                <select
+                  name="site"
+                  defaultValue="both"
+                  className="w-full rounded-2xl border border-[#E8DCC9] bg-white px-4 py-3 text-[#1F4E4C] outline-none transition focus:border-[#D6B37F]"
+                >
+                  <option value="both">两个网站</option>
+                  <option value="jiahuameal">jiahuameal.com</option>
+                  <option value="yuezicanada">yuezicanada.com</option>
+                </select>
+              </div>
+
+              <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-5">
+                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">状态</label>
                 <select
                   name="status"
                   defaultValue="draft"
@@ -276,27 +322,19 @@ export default async function NewBlogPostPage({
               </div>
 
               <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-5">
-                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">
-                  上传封面图
-                </label>
+                <label className="mb-2 block text-sm font-semibold text-[#1F4E4C]">上传封面图</label>
                 <input
                   name="coverImageFile"
                   type="file"
                   accept="image/jpeg,image/png,image/webp,image/gif"
                   className="w-full rounded-2xl border border-dashed border-[#D6B37F] bg-white px-4 py-3 text-sm text-[#1F4E4C] file:mr-4 file:rounded-full file:border-0 file:bg-[#1F4E4C] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-[#173D3B]"
                 />
-                <p className="mt-2 text-xs text-gray-500">
-                  支持 JPG、PNG、WEBP、GIF，最大 5MB。
-                </p>
+                <p className="mt-2 text-xs text-gray-500">支持 JPG、PNG、WEBP、GIF，最大 5MB。</p>
               </div>
 
               <div className="rounded-3xl border border-[#F0E8DD] bg-[#FAF8F5] p-5">
                 <label className="flex items-center gap-3 text-sm font-semibold text-[#1F4E4C]">
-                  <input
-                    name="isFeatured"
-                    type="checkbox"
-                    className="h-4 w-4 rounded border-[#D6B37F]"
-                  />
+                  <input name="isFeatured" type="checkbox" className="h-4 w-4 rounded border-[#D6B37F]" />
                   设置为推荐文章
                 </label>
               </div>

@@ -266,7 +266,7 @@ export default async function EditBlogPostPage({
 
         <form
           action={updateBlogPost}
-          encType="multipart/form-data"
+          
           className="rounded-3xl border border-[#F0E8DD] bg-white p-6 shadow-sm md:p-8"
         >
           <input type="hidden" name="id" value={post.id} />

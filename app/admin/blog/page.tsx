@@ -7,7 +7,6 @@ export const dynamic = "force-dynamic";
 
 function formatDate(date: Date | null) {
   if (!date) return "-";
-
   return date.toLocaleDateString("zh-CN", {
     year: "numeric",
     month: "2-digit",
@@ -17,7 +16,6 @@ function formatDate(date: Date | null) {
 
 function formatDateTime(date: Date | null) {
   if (!date) return "-";
-
   return date.toLocaleString("zh-CN", {
     year: "numeric",
     month: "2-digit",
@@ -27,17 +25,20 @@ function formatDateTime(date: Date | null) {
   });
 }
 
+function getSiteLabel(site: string | null) {
+  if (site === "jiahuameal") return "jiahuameal.com";
+  if (site === "yuezicanada") return "yuezicanada.com";
+  return "两个网站";
+}
+
 async function deleteBlogPost(formData: FormData) {
   "use server";
 
   const id = Number(formData.get("id"));
-
   if (!id) return;
 
   await prisma.blogPost.delete({
-    where: {
-      id,
-    },
+    where: { id },
   });
 
   revalidatePath("/admin/blog");
@@ -47,29 +48,20 @@ async function deleteBlogPost(formData: FormData) {
 export default async function AdminBlogPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ created?: string; error?: string }>;
+  searchParams?: Promise<{ created?: string; updated?: string; error?: string }>;
 }) {
   const params = searchParams ? await searchParams : {};
   const created = params?.created === "1";
+  const updated = params?.updated === "1";
 
   const posts = await prisma.blogPost.findMany({
-    include: {
-      category: true,
-    },
-    orderBy: [
-      {
-        createdAt: "desc",
-      },
-    ],
+    include: { category: true },
+    orderBy: { createdAt: "desc" },
   });
 
-  const publishedCount = posts.filter(
-  (post: { status: string }) => post.status === "published"
-).length;
-
-const draftCount = posts.filter(
-  (post: { status: string }) => post.status === "draft"
-).length;
+  const publishedCount = posts.filter((post) => post.status === "published").length;
+  const draftCount = posts.filter((post) => post.status === "draft").length;
+  const featuredCount = posts.filter((post) => post.isFeatured).length;
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] px-6 py-10 font-sans md:px-8">
@@ -83,7 +75,7 @@ const draftCount = posts.filter(
               文章管理
             </h1>
             <p className="mt-3 text-gray-600">
-              管理 Blog 文章、发布状态、分类、封面图和前台显示内容。
+              管理 Blog 文章、发布状态、分类、双域名显示、SEO 字段和封面图。
             </p>
           </div>
 
@@ -110,26 +102,28 @@ const draftCount = posts.filter(
           </div>
         )}
 
-        <section className="mb-8 grid gap-4 md:grid-cols-3">
+        {updated && (
+          <div className="mb-6 rounded-2xl border border-green-200 bg-green-50 px-5 py-4 text-sm font-semibold text-green-700">
+            文章更新成功。
+          </div>
+        )}
+
+        <section className="mb-8 grid gap-4 md:grid-cols-4">
           <div className="rounded-3xl border border-[#F0E8DD] bg-white p-6 shadow-sm">
             <div className="text-sm font-semibold text-[#B8915D]">全部文章</div>
-            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">
-              {posts.length}
-            </div>
+            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">{posts.length}</div>
           </div>
-
           <div className="rounded-3xl border border-[#F0E8DD] bg-white p-6 shadow-sm">
             <div className="text-sm font-semibold text-[#B8915D]">已发布</div>
-            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">
-              {publishedCount}
-            </div>
+            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">{publishedCount}</div>
           </div>
-
           <div className="rounded-3xl border border-[#F0E8DD] bg-white p-6 shadow-sm">
             <div className="text-sm font-semibold text-[#B8915D]">草稿</div>
-            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">
-              {draftCount}
-            </div>
+            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">{draftCount}</div>
+          </div>
+          <div className="rounded-3xl border border-[#F0E8DD] bg-white p-6 shadow-sm">
+            <div className="text-sm font-semibold text-[#B8915D]">推荐文章</div>
+            <div className="mt-3 text-3xl font-bold text-[#1F4E4C]">{featuredCount}</div>
           </div>
         </section>
 
@@ -137,18 +131,14 @@ const draftCount = posts.filter(
           <div className="border-b border-[#F0E8DD] px-6 py-5 md:px-8">
             <h2 className="text-xl font-bold text-[#1F4E4C]">文章列表</h2>
             <p className="mt-1 text-sm text-gray-500">
-              现在可以直接点击“编辑”进入富文本编辑页面。
+              这里显示 Neon 数据库中的 Blog 文章，可进入编辑页修改内容和 SEO 设置。
             </p>
           </div>
 
           {posts.length === 0 ? (
             <div className="px-6 py-12 text-center md:px-8">
-              <div className="text-xl font-bold text-[#1F4E4C]">
-                目前还没有文章
-              </div>
-              <p className="mt-3 text-gray-600">
-                点击“新增文章”发布第一篇 Blog。
-              </p>
+              <div className="text-xl font-bold text-[#1F4E4C]">目前还没有文章</div>
+              <p className="mt-3 text-gray-600">点击“新增文章”发布第一篇 Blog。</p>
               <Link
                 href="/admin/blog/new"
                 className="mt-6 inline-flex justify-center rounded-full bg-[#1F4E4C] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#173D3B]"
@@ -164,7 +154,9 @@ const draftCount = posts.filter(
                     <th className="whitespace-nowrap px-6 py-4 font-bold">封面</th>
                     <th className="min-w-[280px] px-6 py-4 font-bold">文章</th>
                     <th className="whitespace-nowrap px-6 py-4 font-bold">分类</th>
+                    <th className="whitespace-nowrap px-6 py-4 font-bold">站点</th>
                     <th className="whitespace-nowrap px-6 py-4 font-bold">状态</th>
+                    <th className="whitespace-nowrap px-6 py-4 font-bold">浏览</th>
                     <th className="whitespace-nowrap px-6 py-4 font-bold">发布时间</th>
                     <th className="whitespace-nowrap px-6 py-4 font-bold">创建时间</th>
                     <th className="whitespace-nowrap px-6 py-4 font-bold">操作</th>
@@ -172,8 +164,8 @@ const draftCount = posts.filter(
                 </thead>
 
                 <tbody>
-                  {posts.map((post: any) => (
-                  <tr
+                  {posts.map((post) => (
+                    <tr
                       key={post.id}
                       className="border-t border-[#F0E8DD] align-top transition hover:bg-[#FAF8F5]"
                     >
@@ -196,12 +188,13 @@ const draftCount = posts.filter(
                       </td>
 
                       <td className="px-6 py-5">
-                        <div className="font-bold leading-6 text-[#1F4E4C]">
-                          {post.title}
-                        </div>
-                        <div className="mt-2 max-w-xl text-xs text-gray-500">
-                          /blog/{post.slug}
-                        </div>
+                        <div className="font-bold leading-6 text-[#1F4E4C]">{post.title}</div>
+                        <div className="mt-2 max-w-xl text-xs text-gray-500">/blog/{post.slug}</div>
+                        {post.isFeatured && (
+                          <div className="mt-2 inline-flex rounded-full bg-[#D6B37F]/20 px-3 py-1 text-xs font-semibold text-[#8A6330]">
+                            推荐文章
+                          </div>
+                        )}
                         {post.excerpt && (
                           <div className="mt-3 line-clamp-2 max-w-xl text-gray-600">
                             {post.excerpt}
@@ -212,6 +205,12 @@ const draftCount = posts.filter(
                       <td className="whitespace-nowrap px-6 py-5">
                         <span className="rounded-full bg-[#FAF8F5] px-3 py-1.5 text-xs font-semibold text-[#B8915D]">
                           {post.category?.name ?? "未分类"}
+                        </span>
+                      </td>
+
+                      <td className="whitespace-nowrap px-6 py-5">
+                        <span className="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700">
+                          {getSiteLabel(post.site)}
                         </span>
                       </td>
 
@@ -227,13 +226,9 @@ const draftCount = posts.filter(
                         )}
                       </td>
 
-                      <td className="whitespace-nowrap px-6 py-5 text-gray-600">
-                        {formatDate(post.publishedAt)}
-                      </td>
-
-                      <td className="whitespace-nowrap px-6 py-5 text-gray-600">
-                        {formatDateTime(post.createdAt)}
-                      </td>
+                      <td className="whitespace-nowrap px-6 py-5 text-gray-600">{post.viewCount}</td>
+                      <td className="whitespace-nowrap px-6 py-5 text-gray-600">{formatDate(post.publishedAt)}</td>
+                      <td className="whitespace-nowrap px-6 py-5 text-gray-600">{formatDateTime(post.createdAt)}</td>
 
                       <td className="whitespace-nowrap px-6 py-5">
                         <div className="flex flex-col gap-2">
