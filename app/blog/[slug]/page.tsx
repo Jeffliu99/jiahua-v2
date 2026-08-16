@@ -10,7 +10,7 @@ import {
   getRelatedBlogPosts,
   incrementBlogPostViewCount,
 } from "@/lib/blog-service";
-
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type BlogDetailPageProps = {

@@ -8,7 +8,7 @@ import {
   getCurrentBlogSite,
   getPublishedBlogPosts,
 } from "@/lib/blog-service";
-
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
