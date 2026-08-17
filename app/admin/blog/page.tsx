@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 function formatDate(date: Date | null) {
   if (!date) return "-";
+
   return date.toLocaleDateString("zh-CN", {
     year: "numeric",
     month: "2-digit",
@@ -16,6 +17,7 @@ function formatDate(date: Date | null) {
 
 function formatDateTime(date: Date | null) {
   if (!date) return "-";
+
   return date.toLocaleString("zh-CN", {
     year: "numeric",
     month: "2-digit",
@@ -79,12 +81,19 @@ export default async function AdminBlogPage({
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-end">
             <Link
               href="/blog"
               className="inline-flex justify-center rounded-full border border-[#D6B37F] px-6 py-3 text-sm font-semibold text-[#1F4E4C] transition hover:bg-[#D6B37F]/10"
             >
               查看前台 Blog
+            </Link>
+
+            <Link
+              href="/admin/blog-generator"
+              className="inline-flex justify-center rounded-full border border-[#1F4E4C] bg-white px-6 py-3 text-sm font-semibold text-[#1F4E4C] shadow-sm transition hover:bg-[#1F4E4C]/10"
+            >
+              AI 生成文章
             </Link>
 
             <Link
@@ -139,12 +148,20 @@ export default async function AdminBlogPage({
             <div className="px-6 py-12 text-center md:px-8">
               <div className="text-xl font-bold text-[#1F4E4C]">目前还没有文章</div>
               <p className="mt-3 text-gray-600">点击“新增文章”发布第一篇 Blog。</p>
-              <Link
-                href="/admin/blog/new"
-                className="mt-6 inline-flex justify-center rounded-full bg-[#1F4E4C] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#173D3B]"
-              >
-                新增文章
-              </Link>
+              <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/admin/blog-generator"
+                  className="inline-flex justify-center rounded-full border border-[#1F4E4C] bg-white px-6 py-3 text-sm font-semibold text-[#1F4E4C] transition hover:bg-[#1F4E4C]/10"
+                >
+                  AI 生成文章
+                </Link>
+                <Link
+                  href="/admin/blog/new"
+                  className="inline-flex justify-center rounded-full bg-[#1F4E4C] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#173D3B]"
+                >
+                  新增文章
+                </Link>
+              </div>
             </div>
           ) : (
             <div className="overflow-x-auto">

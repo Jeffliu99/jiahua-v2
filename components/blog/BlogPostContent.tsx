@@ -33,50 +33,10 @@ function escapeHtml(input: string) {
 }
 
 function renderContent(content: string) {
-  if (/<[a-z][\s\S]*>/i.test(content)) {
-    return content;
-  }
-
-  const lines = content.trim().split("\n");
-  let html = "";
-  let inList = false;
-
-  for (const rawLine of lines) {
-    const line = rawLine.trim();
-    if (!line) continue;
-
-    if (line.startsWith("### ")) {
-      if (inList) {
-        html += "</ul>";
-        inList = false;
-      }
-      html += `<h3>${escapeHtml(line.replace(/^###\s+/, ""))}</h3>`;
-    } else if (line.startsWith("#### ")) {
-      if (inList) {
-        html += "</ul>";
-        inList = false;
-      }
-      html += `<h4>${escapeHtml(line.replace(/^####\s+/, ""))}</h4>`;
-    } else if (line.startsWith("- ")) {
-      if (!inList) {
-        html += "<ul>";
-        inList = true;
-      }
-      html += `<li>${escapeHtml(line.replace(/^\-\s+/, ""))}</li>`;
-    } else {
-      if (inList) {
-        html += "</ul>";
-        inList = false;
-      }
-      html += `<p>${escapeHtml(line)}</p>`;
-    }
-  }
-
-  if (inList) {
-    html += "</ul>";
-  }
-
-  return html;
+  return content
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
 }
 
 export default function BlogPostContent({ post }: BlogPostContentProps) {
