@@ -50,3 +50,22 @@ model BlogPost {
 
   @@map("blog_posts")
 }
+
+model BlogGenerationQueue {
+  id          Int      @id @default(autoincrement())
+
+  keyword     String
+  language    String   @default("zh")
+
+  title       String?
+  slug        String?
+
+  status      String   @default("pending")
+
+  payload     Json?
+
+  generatedAt DateTime?
+  publishedAt DateTime?
+
+  createdAt   DateTime @default(now())
+}
