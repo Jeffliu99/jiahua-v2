@@ -6,66 +6,136 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model BlogCategory {
-  id        Int        @id @default(autoincrement())
-  name      String     @db.VarChar(100)
-  slug      String     @unique @db.VarChar(100)
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(100)
+  slug String @unique @db.VarChar(100)
 
-  createdAt DateTime   @default(now()) @map("created_at")
-  updatedAt DateTime   @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-  posts     BlogPost[]
+  posts BlogPost[]
 
   @@map("blog_categories")
 }
 
 model BlogPost {
-  id             Int           @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  categoryId     Int?          @map("category_id")
-  category       BlogCategory? @relation(fields: [categoryId], references: [id])
+  categoryId Int?          @map("category_id")
+  category   BlogCategory? @relation(fields: [categoryId], references: [id])
 
-  title          String        @db.VarChar(255)
-  slug           String        @unique @db.VarChar(255)
+  title String @db.VarChar(255)
+  slug  String @unique @db.VarChar(255)
 
-  excerpt        String?       @db.Text
-  content        String        @db.Text
-  coverImage     String?       @map("cover_image") @db.VarChar(500)
+  excerpt    String? @db.Text
+  content    String  @db.Text
+  coverImage String? @map("cover_image") @db.VarChar(500)
 
-  status         String        @default("draft") @db.VarChar(20)
-  isFeatured     Boolean       @default(false) @map("is_featured")
+  status     String  @default("draft") @db.VarChar(20)
+  isFeatured Boolean @default(false) @map("is_featured")
 
-  site           String        @default("both") @db.VarChar(50)
+  site String @default("both") @db.VarChar(50)
 
-  seoTitle       String?       @map("seo_title") @db.VarChar(255)
-  seoDescription String?       @map("seo_description") @db.Text
-  seoKeywords    String?       @map("seo_keywords") @db.Text
+  seoTitle       String? @map("seo_title") @db.VarChar(255)
+  seoDescription String? @map("seo_description") @db.Text
+  seoKeywords    String? @map("seo_keywords") @db.Text
 
-  viewCount      Int           @default(0) @map("view_count")
+  viewCount Int @default(0) @map("view_count")
 
-  publishedAt    DateTime?     @map("published_at")
-  createdAt      DateTime      @default(now()) @map("created_at")
-  updatedAt      DateTime      @updatedAt @map("updated_at")
+  publishedAt DateTime?    @map("published_at")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  redditLeads RedditLead[]
 
   @@map("blog_posts")
 }
 
 model BlogGenerationQueue {
-  id          Int      @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  keyword     String
-  language    String   @default("zh")
+  keyword  String
+  language String @default("zh")
 
-  title       String?
-  slug        String?
+  title String?
+  slug  String?
 
-  status      String   @default("pending")
+  status String @default("pending")
 
-  payload     Json?
+  payload Json?
 
   generatedAt DateTime?
   publishedAt DateTime?
 
-  createdAt   DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model RedditLead {
+  id Int @id @default(autoincrement())
+
+  // Reddit 原始信息
+  title     String
+  url       String @unique
+  subreddit String
+
+  author        String?
+  postCreatedAt DateTime?
+
+  upvotes      Int @default(0)
+  commentCount Int @default(0)
+
+  // AI分析
+  intentScore Int @default(0)
+  matchScore  Int @default(0)
+
+  problemSummary String? @db.Text
+  aiAnalysis     String? @db.Text
+
+  // 回复管理
+  replyDraft String? @db.Text
+  finalReply String? @db.Text
+
+  repliedAt DateTime?
+
+  // 内容运营
+  keyword String?
+
+  blogPostId Int?
+  blogPost   BlogPost? @relation(fields: [blogPostId], references: [id])
+
+  // 工作流
+  status RedditLeadStatus @default(NEW)
+
+  // 标签
+  city     String?
+  category String?
+
+  notes String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([intentScore])
+  @@index([city])
+  @@index([category])
+  @@index([createdAt])
+}
+
+enum RedditLeadStatus {
+  NEW
+
+  AI_ANALYZED
+
+  REPLY_READY
+
+  REPLIED
+
+  BLOG_CREATED
+
+  CONVERTED
+
+  CLOSED
+
+  IGNORED
 }
