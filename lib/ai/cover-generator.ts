@@ -1,6 +1,5 @@
 import { randomUUID } from "crypto";
-import fs from "fs/promises";
-import path from "path";
+import { uploadBlogCover } from "@/lib/storage/r2";
 
 export interface GenerateCoverOptions {
   title: string;
@@ -163,20 +162,15 @@ export async function generateBlogCover({
   const extension = getExtensionFromMimeType(mimeType);
   const imageBuffer = await downloadImageToBuffer(String(temporaryImageUrl));
 
-  const fileName = `${normalizeFileName(title)}-${randomUUID()}${extension}`;
-  const relativePath = `/images/blog/${fileName}`;
-  const outputPath = path.join(process.cwd(), "public", relativePath);
+  const uploaded = await uploadBlogCover(
+  imageBuffer,
+  extension.replace(".", "")
+);
 
-  await fs.mkdir(path.dirname(outputPath), {
-    recursive: true,
-  });
-
-  await fs.writeFile(outputPath, imageBuffer);
-
-  return {
-    imageUrl: relativePath,
-    prompt,
-    revisedPrompt: image?.revised_prompt || undefined,
-    mimeType,
-  };
+return {
+  imageUrl: uploaded.url,
+  prompt,
+  revisedPrompt: image?.revised_prompt || undefined,
+  mimeType,
+};
 }

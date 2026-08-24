@@ -42,11 +42,14 @@ const DEFAULT_MODEL = process.env.AI_MODEL || "grok-4.6";
 const DEFAULT_API_URL =
   process.env.AI_API_URL || "https://api.x.ai/v1/chat/completions";
 
+const AI_TIMEOUT_MS = 180_000;
+const AI_MAX_ATTEMPTS = 3;
+
 function normalizeSlug(input: string) {
   return input
     .toLowerCase()
     .trim()
-    .replace(/[\'\"]/g, "")
+    .replace(/[\'"]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 160);
@@ -96,9 +99,11 @@ function optimizeParagraphs(content: string) {
 
       if (sentences.length <= 1) {
         const chunks: string[] = [];
-        for (let i = 0; i < cleaned.length; i += 120) {
-          chunks.push(`<p>${cleaned.slice(i, i + 120)}</p>`);
+
+        for (let index = 0; index < cleaned.length; index += 120) {
+          chunks.push(`<p>${cleaned.slice(index, index + 120)}</p>`);
         }
+
         return chunks.join("\n\n");
       }
 
@@ -133,59 +138,99 @@ function safeJsonParse(raw: string): GeneratedBlogPayload {
   }
 
   const title = String(parsed.title).trim();
-  const content = optimizeParagraphs(String(parsed.content).trim());
   const excerpt = String(parsed.excerpt || "").trim();
   const rawSlug = String(parsed.slug || title).trim();
-  const seoTitle = String(parsed.seoTitle || title).trim();
-  const seoDescription = String(parsed.seoDescription || excerpt).trim();
-  const keywords = Array.isArray(parsed.keywords)
-    ? parsed.keywords.map((item) => String(item).trim()).filter(Boolean)
-    : [];
 
   return {
     title,
     slug: normalizeSlug(rawSlug) || fallbackSlug(title),
     excerpt,
-    content,
-    seoTitle,
-    seoDescription,
-    keywords,
+    content: optimizeParagraphs(String(parsed.content).trim()),
+    seoTitle: String(parsed.seoTitle || title).trim(),
+    seoDescription: String(parsed.seoDescription || excerpt).trim(),
+    keywords: Array.isArray(parsed.keywords)
+      ? parsed.keywords.map((item) => String(item).trim()).filter(Boolean)
+      : [],
   };
+}
+
+function sleep(milliseconds: number) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 async function callTextModel(prompt: string) {
   const apiKey = process.env.AI_API_KEY;
-  if (!apiKey) throw new Error("AI_API_KEY is not set");
 
-  const response = await fetch(DEFAULT_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: DEFAULT_MODEL,
-      temperature: 0.7,
-      messages: [
-        {
-          role: "system",
-          content:
-            "You generate clean, valid JSON only. Do not use markdown code fences.",
-        },
-        { role: "user", content: prompt },
-      ],
-    }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`AI request failed: ${response.status} ${errorText}`);
+  if (!apiKey) {
+    throw new Error("AI_API_KEY is not set");
   }
 
-  const data = await response.json();
-  const content = data?.choices?.[0]?.message?.content;
-  if (!content) throw new Error("AI response did not include message content");
-  return String(content);
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= AI_MAX_ATTEMPTS; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), AI_TIMEOUT_MS);
+
+    try {
+      console.log(`AI attempt ${attempt}/${AI_MAX_ATTEMPTS}: before fetch`);
+
+      const response = await fetch(DEFAULT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: DEFAULT_MODEL,
+          temperature: 0.7,
+          messages: [
+            {
+              role: "system",
+              content:
+                "You generate clean, valid JSON only. Do not use markdown code fences.",
+            },
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+        }),
+        signal: controller.signal,
+      });
+
+      console.log(`AI attempt ${attempt}: response received (${response.status})`);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `AI request failed: ${response.status} ${errorText}`
+        );
+      }
+
+      const data = await response.json();
+      const content = data?.choices?.[0]?.message?.content;
+
+      if (!content) {
+        throw new Error("AI response did not include message content");
+      }
+
+      console.log(`AI attempt ${attempt}: content received`);
+      return String(content);
+    } catch (error) {
+      lastError = error;
+      console.error(`AI attempt ${attempt} failed:`, error);
+
+      if (attempt < AI_MAX_ATTEMPTS) {
+        await sleep(attempt * 3_000);
+      }
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw lastError instanceof Error
+    ? lastError
+    : new Error("AI request failed after retries");
 }
 
 function getDefaultCategorySlug(pillar?: BlogContentPillar) {
@@ -207,9 +252,11 @@ function getDefaultCategorySlug(pillar?: BlogContentPillar) {
   }
 }
 
-async function findCategoryId(categorySlug?: string, pillar?: BlogContentPillar) {
+async function findCategoryId(
+  categorySlug?: string,
+  pillar?: BlogContentPillar
+) {
   const slug = categorySlug || getDefaultCategorySlug(pillar);
-  if (!slug) return null;
 
   const category = await prisma.blogCategory.findUnique({
     where: { slug },
@@ -230,6 +277,7 @@ async function ensureUniqueSlug(baseSlug: string) {
     });
 
     if (!existing) return slug;
+
     slug = `${baseSlug}-${counter}`;
     counter += 1;
   }
@@ -244,7 +292,9 @@ async function updateQueueStatus(
     where: { id: queueId },
     data: {
       status,
-      ...(payload ? { payload: toJsonValue(payload) } : {}),
+      ...(payload !== undefined
+        ? { payload: toJsonValue(payload) }
+        : {}),
     },
   });
 }
@@ -276,6 +326,8 @@ export async function processBlogGenerationQueue(
   const shouldGenerateCover = options.generateCover ?? true;
 
   try {
+    console.log("STEP 1 generating-content");
+
     await updateQueueStatus(queueId, "generating-content", {
       pillar: options.pillar || null,
       targetSite,
@@ -290,7 +342,14 @@ export async function processBlogGenerationQueue(
       targetSite,
     });
 
+    console.log("AI_API_URL =", DEFAULT_API_URL);
+    console.log("AI_MODEL =", DEFAULT_MODEL);
+    console.log("Prompt Length =", prompt.length);
+    console.log("STEP 2 callTextModel");
+
     const raw = await callTextModel(prompt);
+
+    console.log("STEP 3 AI returned");
 
     await updateQueueStatus(queueId, "optimizing-content", {
       pillar: options.pillar || null,
@@ -300,20 +359,28 @@ export async function processBlogGenerationQueue(
     });
 
     const generated = safeJsonParse(raw);
+
+    console.log("STEP 4 parsed");
+
     const slug = await ensureUniqueSlug(
       generated.slug || fallbackSlug(options.keyword)
     );
-    const categoryId = await findCategoryId(options.categorySlug, options.pillar);
+    const categoryId = await findCategoryId(
+      options.categorySlug,
+      options.pillar
+    );
 
     let coverImage: string | null = null;
     let coverPayload: Record<string, unknown> | null = null;
 
     if (shouldGenerateCover) {
+      console.log("STEP 5 generating-cover");
+
       await updateQueueStatus(queueId, "generating-cover", {
         pillar: options.pillar || null,
         targetSite,
         categorySlug: options.categorySlug || null,
-        generateCover: shouldGenerateCover,
+        generateCover: true,
         title: generated.title,
         slug,
       });
@@ -332,6 +399,8 @@ export async function processBlogGenerationQueue(
           mimeType: cover.mimeType || null,
         };
       } catch (coverError) {
+        console.error("Cover generation failed:", coverError);
+
         coverPayload = {
           imageUrl: null,
           error:
@@ -341,6 +410,8 @@ export async function processBlogGenerationQueue(
         };
       }
     }
+
+    console.log("STEP 6 saving");
 
     await updateQueueStatus(queueId, "saving", {
       pillar: options.pillar || null,
@@ -362,7 +433,8 @@ export async function processBlogGenerationQueue(
         status: "draft",
         site: targetSite,
         seoTitle: generated.seoTitle || generated.title,
-        seoDescription: generated.seoDescription || generated.excerpt || null,
+        seoDescription:
+          generated.seoDescription || generated.excerpt || null,
         seoKeywords: generated.keywords.join(", ") || null,
         isFeatured: false,
         publishedAt: null,
@@ -389,6 +461,8 @@ export async function processBlogGenerationQueue(
       },
     });
 
+    console.log("STEP 7 completed");
+
     return {
       queueId,
       blogPost,
@@ -396,6 +470,8 @@ export async function processBlogGenerationQueue(
       cover: coverPayload,
     };
   } catch (error) {
+    console.error("Blog generation failed:", error);
+
     await prisma.blogGenerationQueue.update({
       where: { id: queueId },
       data: {
@@ -424,8 +500,12 @@ export async function generateBlogDraftFromKeyword(
   return processBlogGenerationQueue(queue.id, options);
 }
 
-export async function generateManyBlogDrafts(items: GenerateBlogDraftOptions[]) {
-  const results: Awaited<ReturnType<typeof generateBlogDraftFromKeyword>>[] = [];
+export async function generateManyBlogDrafts(
+  items: GenerateBlogDraftOptions[]
+) {
+  const results: Awaited<
+    ReturnType<typeof generateBlogDraftFromKeyword>
+  >[] = [];
 
   for (const item of items) {
     const result = await generateBlogDraftFromKeyword(item);
